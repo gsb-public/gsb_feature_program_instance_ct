@@ -1,0 +1,70 @@
+<?php
+/**
+ * @file
+ * Code for the GSB Feature Program Instance Content Type feature.
+ */
+
+include_once 'gsb_feature_program_instance_ct.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_state) {
+  $language = $form['language']['#value'];
+
+  unset($form['field_instance_date_text_select']['und']['#options']['_none']);
+  unset($form['field_instance_date_text_select']['und']['#title']);
+
+  $form['field_instance_text']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_instance_date_text_select[' . $language . ']"]' => array(
+        array('value' => 'Text'),
+      ),
+    ),
+  );
+  $form['field_instance_date']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_instance_date_text_select[' . $language . ']"]' => array(
+        array('value' => 'Date'),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_attach_form().
+ */
+function gsb_feature_program_instance_ct_field_attach_form($entity_type, $entity, &$form, &$form_state, $langcode) {
+  // $langcode might be NULL.
+  $langcode = $langcode ?: LANGUAGE_NONE;
+
+  // If this is a field_module_schedule field collection, and the field_module_show_date is set,
+  // setup the states for visibility
+
+  if ($entity_type == 'field_collection_item' && $entity->field_name == 'field_module_schedule') {
+    $map = array(
+      '1' => array(
+        'field_module_date',
+      ),
+    );
+
+    // Build up the location of the field in the form.
+    $parents = $form['#parents'];
+    $parents[] = 'field_module_show_date';
+    $parents[] = $langcode;
+    $first = array_shift($parents);
+    $parents = $first . '[' . implode('][', $parents) . ']';
+
+    // Loop through each possible value for the field_module_show_date field,
+    // controlling the visibility of the dependent fields.
+    foreach ($map as $value => $fields) {
+      foreach ($fields as $field) {
+        $form[$field]['#states'] = array(
+          'visible' => array(
+            ':input[name="' . $parents . '"]' => array('checked' => TRUE),
+          ),
+        );
+      }
+    }
+  }
+}
