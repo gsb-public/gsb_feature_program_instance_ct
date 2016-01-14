@@ -14,7 +14,7 @@ function gsb_feature_program_instance_ct_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_node_program_instance';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['auto_entitylabel_node_program_instance'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -40,16 +40,16 @@ function gsb_feature_program_instance_ct_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '7',
+          'weight' => '17',
         ),
         'title' => array(
-          'weight' => '1',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '16',
         ),
         'redirect' => array(
-          'weight' => '5',
+          'weight' => '15',
         ),
       ),
       'display' => array(),
@@ -61,9 +61,7 @@ function gsb_feature_program_instance_ct_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_program_instance';
-  $strongarm->value = array(
-    0 => 'main-menu',
-  );
+  $strongarm->value = array();
   $export['menu_options_program_instance'] = $strongarm;
 
   $strongarm = new stdClass();

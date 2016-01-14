@@ -12,6 +12,21 @@ include_once 'gsb_feature_program_instance_ct.features.inc';
 function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_state) {
   $language = $form['language']['#value'];
 
+  if ($form['#form_id'] != "program_instance_node_form") {
+    return;
+  }
+
+  $action = $form['#action'];
+
+  if (strpos($action, "/gsb-node/ajax/add/program_instance/") !== FALSE) {
+    $program_nid = str_replace("/gsb-node/ajax/add/program_instance/", "", $action);
+    if (!empty($program_nid)) {
+      $program_node = node_load($program_nid);
+      $ref = $program_node->title . " (" . $program_nid . ")";
+      $form['field_program']['und'][0]['target_id']['#default_value'] = $ref; //"Program X (407466)";
+    }
+  }
+
   unset($form['field_instance_date_text_select']['und']['#options']['_none']);
   unset($form['field_instance_date_text_select']['und']['#title']);
 

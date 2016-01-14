@@ -23,8 +23,8 @@ function gsb_feature_program_instance_ct_field_group_info() {
     'label' => 'Instance Dates',
     'weight' => '4',
     'children' => array(
-      0 => 'field_instance_date_text_select',
-      1 => 'field_instance_date',
+      0 => 'field_instance_date',
+      1 => 'field_instance_date_text_select',
       2 => 'field_instance_text',
     ),
     'format_type' => 'fieldset',
