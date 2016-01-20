@@ -1360,6 +1360,69 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
+  // Exported field_instance: 'node-program_instance-field_search_field'.
+  $field_instances['node-program_instance-field_search_field'] = array(
+    'bundle' => 'program_instance',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'concat_field',
+        'settings' => array(
+          'conditions' => array(),
+        ),
+        'type' => 'concat_field_blank',
+        'weight' => 17,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_search_field',
+    'label' => 'Search field',
+    'required' => 0,
+    'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'selected_fields' => array(
+        'concat_field_entity_label' => 'concat_field_entity_label',
+        'field_apower_id' => 'field_apower_id',
+        'field_application_deadlines' => 0,
+        'field_brochure_pdf' => 0,
+        'field_download_brochure_link' => 0,
+        'field_included_in_tuition' => 'field_included_in_tuition',
+        'field_instance_date' => 0,
+        'field_instance_date_text_select' => 0,
+        'field_instance_label' => 'field_instance_label',
+        'field_instance_text' => 'field_instance_text',
+        'field_is_application_open' => 0,
+        'field_is_program_online' => 0,
+        'field_link_for_apply_button' => 0,
+        'field_optional_programming' => 'field_optional_programming',
+        'field_program' => 0,
+        'field_program_location' => 0,
+        'field_tuition' => 0,
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'concat_field',
+      'settings' => array(),
+      'type' => 'concat_field_default',
+      'weight' => 15,
+    ),
+    'workbench_access_field' => 0,
+  );
+
   // Exported field_instance: 'node-program_instance-field_tuition'.
   $field_instances['node-program_instance-field_tuition'] = array(
     'bundle' => 'program_instance',
@@ -1446,6 +1509,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('Optional Programming Dates and Tuition');
   t('Program');
   t('Program Location');
+  t('Search field');
   t('Text');
   t('Tuition');
 

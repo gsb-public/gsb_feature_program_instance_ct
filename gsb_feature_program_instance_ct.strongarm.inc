@@ -40,16 +40,16 @@ function gsb_feature_program_instance_ct_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '17',
+          'weight' => '18',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '16',
+          'weight' => '17',
         ),
         'redirect' => array(
-          'weight' => '15',
+          'weight' => '16',
         ),
       ),
       'display' => array(),
@@ -95,6 +95,13 @@ function gsb_feature_program_instance_ct_strongarm() {
   $strongarm->name = 'node_submitted_program_instance';
   $strongarm->value = 1;
   $export['node_submitted_program_instance'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_program_instance_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_program_instance_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
