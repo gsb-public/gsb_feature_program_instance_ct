@@ -42,7 +42,6 @@ features[field_instance][] = node-program_instance-field_instance_date_text_sele
 features[field_instance][] = node-program_instance-field_instance_label
 features[field_instance][] = node-program_instance-field_instance_text
 features[field_instance][] = node-program_instance-field_is_application_open
-features[field_instance][] = node-program_instance-field_is_program_online
 features[field_instance][] = node-program_instance-field_optional_programming
 features[field_instance][] = node-program_instance-field_program
 features[field_instance][] = node-program_instance-field_program_location
