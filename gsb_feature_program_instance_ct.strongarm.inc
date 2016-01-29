@@ -127,6 +127,21 @@ function gsb_feature_program_instance_ct_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'featured_program' => array(
+        'custom_settings' => TRUE,
+      ),
+      'field_fieldx' => array(
+        'custom_settings' => FALSE,
+      ),
+      'field_fieldy' => array(
+        'custom_settings' => FALSE,
+      ),
+      'field_fieldz' => array(
+        'custom_settings' => FALSE,
+      ),
+      'program_director' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
