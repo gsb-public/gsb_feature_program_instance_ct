@@ -7,10 +7,104 @@
 include_once 'gsb_feature_program_instance_ct.features.inc';
 
 /**
+ * Implements hook_menu().
+ */
+function gsb_feature_program_instance_ct_menu() {
+  $items = array();
+  $items['gsb-feature-program-instance-ct/display-on-finder-update/node/%gsb_feature_program_instance_ct_entity_menu'] = array(
+    'page callback' => 'gsb_feature_program_instance_ct_update_display_on_finder',
+    'page arguments' => array(2, 3),
+    'access callback' => 'entity_access',
+    'access arguments' => array('update', 2, 3),
+    // This passes the $entity_type to the load function along with $entity_id.
+    'load arguments' => array(2),
+    // The callback will be returning AJAX, never HTML.
+    'delivery callback' => 'ajax_deliver',
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  $items['gsb-feature-program-instance-ct/application-open-update/node/%gsb_feature_program_instance_ct_entity_menu'] = array(
+    'page callback' => 'gsb_feature_program_instance_ct_update_application_open',
+    'page arguments' => array(2, 3),
+    'access callback' => 'entity_access',
+    'access arguments' => array('update', 2, 3),
+    // This passes the $entity_type to the load function along with $entity_id.
+    'load arguments' => array(2),
+    // The callback will be returning AJAX, never HTML.
+    'delivery callback' => 'ajax_deliver',
+    'theme callback' => 'ajax_base_page_theme',
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Menu loader for an entity.
+ */
+function gsb_feature_program_instance_ct_entity_menu_load($entity_id, $entity_type) {
+  return entity_load_single($entity_type, $entity_id);
+}
+
+/**
+ * Updates the display_on_finder for a program instance
+ */
+function gsb_feature_program_instance_ct_update_display_on_finder($entity_type, $entity) {
+
+  $display_on_finder = '0';
+  if ($_POST['display_on_finder'] == 'true') {
+    $display_on_finder = '1';
+  }
+
+  // Load the entity and save the new value.
+  $wrapper = entity_metadata_wrapper($entity_type, $entity);
+  $wrapper->field_display_on_finder = $display_on_finder;
+  $wrapper->save();
+
+  return array(
+    '#type' => 'ajax',
+    '#commands' => array(
+      array('command' => 'gsb_feature_program_instance_ct_update_display_on_finder_result'),
+    ),
+  );
+}
+
+/**
+ * Updates the application_open for a program instance
+ */
+function gsb_feature_program_instance_ct_update_application_open($entity_type, $entity) {
+
+  $application_open = '0';
+  if ($_POST['application_open'] == 'true') {
+    $application_open = '1';
+  }
+
+  // Load the entity and save the new value.
+  $wrapper = entity_metadata_wrapper($entity_type, $entity);
+  $wrapper->field_is_application_open = $application_open;
+  $wrapper->save();
+
+  return array(
+    '#type' => 'ajax',
+    '#commands' => array(
+      array('command' => 'gsb_feature_program_instance_ct_update_application_open_result'),
+    ),
+  );
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_state) {
   $language = $form['language']['#value'];
+
+  if ($form['#form_id'] == "program_node_form") {
+    $form['field_search_field']['#attached'] = array(
+      'js' => array(
+        ctools_attach_js('gsb_feature_program_instance_ct', 'gsb_feature_program_instance_ct'),
+      ),
+    );
+    return;
+  }
 
   if ($form['#form_id'] != "program_instance_node_form") {
     return;
@@ -118,4 +212,3 @@ function gsb_feature_program_instance_ct_program_tuition_link_after_build($eleme
   $element['title']['#title'] = t('Amount or Description');
   return $element;
 }
-
