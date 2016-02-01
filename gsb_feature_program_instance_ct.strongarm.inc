@@ -146,16 +146,16 @@ function gsb_feature_program_instance_ct_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '18',
+          'weight' => '16',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '17',
+          'weight' => '15',
         ),
         'redirect' => array(
-          'weight' => '16',
+          'weight' => '14',
         ),
       ),
       'display' => array(),

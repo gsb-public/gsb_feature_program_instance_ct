@@ -21,7 +21,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Application',
-    'weight' => '13',
+    'weight' => '11',
     'children' => array(
       0 => 'field_application_deadlines',
       1 => 'field_application_url',
@@ -49,7 +49,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Brochure PDF/Link',
-    'weight' => '14',
+    'weight' => '12',
     'children' => array(
       0 => 'field_brochure_pdf',
       1 => 'field_download_brochure_link',
