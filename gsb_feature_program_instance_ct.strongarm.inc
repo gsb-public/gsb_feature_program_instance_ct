@@ -68,10 +68,10 @@ function gsb_feature_program_instance_ct_strongarm() {
         'custom_settings' => FALSE,
       ),
       'compact' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'expanded' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'views_content_pane' => array(
         'custom_settings' => FALSE,
