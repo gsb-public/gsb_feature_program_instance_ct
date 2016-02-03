@@ -1752,7 +1752,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'field_is_program_online' => 0,
         'field_link_for_apply_button' => 0,
         'field_optional_programming' => 'field_optional_programming',
-        'field_program' => 0,
+        'field_program' => 'field_program',
         'field_program_location' => 0,
         'field_tuition' => 0,
       ),
