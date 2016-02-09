@@ -110,6 +110,8 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     return;
   }
 
+  $form['field_brochure_pdf']['und'][0]['#description'] = '';
+
   $action = $form['#action'];
 
   if (strpos($action, "/gsb-node/ajax/add/program_instance/") !== FALSE) {

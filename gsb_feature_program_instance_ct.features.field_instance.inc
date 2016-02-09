@@ -458,7 +458,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 27,
     ),
     'workbench_access_field' => 0,
   );
@@ -527,7 +527,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 27,
+      'weight' => 30,
     ),
     'workbench_access_field' => 0,
   );
@@ -664,7 +664,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_brochure_pdf',
-    'label' => 'Brochure PDF',
+    'label' => 'Brochure',
     'required' => 0,
     'settings' => array(
       'custom_add_another' => '',
@@ -767,7 +767,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 4,
+      'weight' => 5,
     ),
     'workbench_access_field' => 0,
   );
@@ -855,7 +855,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 27,
+      'weight' => 28,
     ),
     'workbench_access_field' => 0,
   );
@@ -983,7 +983,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 12,
+      'weight' => 8,
     ),
     'workbench_access_field' => 0,
   );
@@ -1086,7 +1086,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 10,
+      'weight' => 5,
     ),
     'workbench_access_field' => 0,
   );
@@ -1162,7 +1162,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'checkall' => FALSE,
       ),
       'type' => 'options_buttons',
-      'weight' => 9,
+      'weight' => 4,
     ),
     'workbench_access_field' => 0,
   );
@@ -1288,7 +1288,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 4,
     ),
     'workbench_access_field' => 0,
   );
@@ -1414,7 +1414,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 11,
+      'weight' => 6,
     ),
     'workbench_access_field' => 0,
   );
@@ -1479,7 +1479,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 5,
+      'weight' => 29,
     ),
     'workbench_access_field' => 0,
   );
@@ -1567,7 +1567,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 10,
+      'weight' => 28,
     ),
     'workbench_access_field' => 0,
   );
@@ -1696,7 +1696,95 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 13,
+      'weight' => 9,
+    ),
+    'workbench_access_field' => 0,
+  );
+
+  // Exported field_instance:
+  // 'node-program_instance-field_prequalification_url'.
+  $field_instances['node-program_instance-field_prequalification_url'] = array(
+    'bundle' => 'program_instance',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'compact' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(
+          'conditions' => array(),
+        ),
+        'type' => 'link_default',
+        'weight' => 21,
+      ),
+      'expanded' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured_program' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_prequalification_url',
+    'label' => 'Prequalification URL',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'user',
+        'title' => '',
+      ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 31,
     ),
     'workbench_access_field' => 0,
   );
@@ -1776,7 +1864,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 1,
+      'weight' => 2,
     ),
     'workbench_access_field' => 0,
   );
@@ -1852,7 +1940,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 8,
+      'weight' => 10,
     ),
     'workbench_access_field' => 0,
   );
@@ -1920,7 +2008,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 7,
+      'weight' => 4,
     ),
     'workbench_access_field' => 0,
   );
@@ -2003,7 +2091,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'concat_field',
       'settings' => array(),
       'type' => 'concat_field_default',
-      'weight' => 13,
+      'weight' => 8,
     ),
     'workbench_access_field' => 0,
   );
@@ -2090,7 +2178,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 10,
+      'weight' => 7,
     ),
     'workbench_access_field' => 0,
   );
@@ -2099,7 +2187,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Apower ID');
   t('Application URL');
-  t('Brochure PDF');
+  t('Brochure');
   t('Date');
   t('Deadlines');
   t('Display on Program and Program Finder');
@@ -2111,6 +2199,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('Link for apply button');
   t('Location Name');
   t('Optional Programming Dates and Tuition');
+  t('Prequalification URL');
   t('Program');
   t('Program Format & Location');
   t('Program Location');
