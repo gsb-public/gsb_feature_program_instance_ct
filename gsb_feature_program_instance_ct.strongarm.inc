@@ -50,7 +50,7 @@ function gsb_feature_program_instance_ct_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'program_viewmode1' => array(
         'custom_settings' => FALSE,
@@ -140,6 +140,18 @@ function gsb_feature_program_instance_ct_strongarm() {
         'custom_settings' => FALSE,
       ),
       'program_director' => array(
+        'custom_settings' => FALSE,
+      ),
+      'field_program_ctas' => array(
+        'custom_settings' => FALSE,
+      ),
+      'field_program_curriculum' => array(
+        'custom_settings' => FALSE,
+      ),
+      'field_program_director' => array(
+        'custom_settings' => FALSE,
+      ),
+      'field_program_related' => array(
         'custom_settings' => FALSE,
       ),
     ),
