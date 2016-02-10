@@ -1154,7 +1154,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'settings' => array(
         'display_all_day' => 0,
         'increment' => 15,
-        'input_format' => 'F j, Y',
+        'input_format' => 'M j, Y',
         'input_format_custom' => '',
         'label_position' => 'above',
         'no_fieldset' => 1,
