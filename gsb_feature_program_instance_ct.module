@@ -220,3 +220,41 @@ function gsb_feature_program_instance_ct_program_tuition_link_after_build($eleme
   $element['title']['#title'] = t('Amount or Description');
   return $element;
 }
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function gsb_feature_program_instance_ct_field_extra_fields() {
+
+  $extra = array();
+  $extra['node']['program_instance']['display'] = array(
+    'gsb_time_commitment' => array(
+      'label' => t('Time Commitment'),
+      'description' => t('Time Commitment'),
+      'weight' => 0,
+    ),
+  );
+
+  return $extra;
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function gsb_feature_program_instance_ct_node_view($entity, $view_mode, $langcode) {
+  $fields = field_extra_fields_get_display('node', $entity->type, $view_mode);
+  if ($entity->type != 'program_instance') {
+    return;
+  }
+  $program_node = node_load($entity->field_program['und'][0]['target_id']);
+  $time_commitment_term = taxonomy_term_load($program_node->field_time_commitment['und'][0]['tid']);
+  $entity->content['gsb_time_commitment'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array(
+        'gsb-time-commitment',
+      ),
+    ),
+    '#children' => $time_commitment_term->name,
+  );
+}
