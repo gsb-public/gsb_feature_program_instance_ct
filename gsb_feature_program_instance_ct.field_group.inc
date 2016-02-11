@@ -26,9 +26,9 @@ function gsb_feature_program_instance_ct_field_group_info() {
       0 => 'field_apower_id',
       1 => 'field_application_deadlines',
       2 => 'field_is_application_open',
-      3 => 'field_link_for_apply_button',
-      4 => 'field_application_url',
-      5 => 'field_prequalification_url',
+      3 => 'field_application_url',
+      4 => 'field_prequalification_url',
+      5 => 'field_link_apply_button',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -142,11 +142,11 @@ function gsb_feature_program_instance_ct_field_group_info() {
     'label' => '',
     'weight' => '7',
     'children' => array(
-      0 => 'group_schedule',
-      1 => 'group_application',
-      2 => 'group_brochure',
-      3 => 'group_tuition',
-      4 => 'group_format_location',
+      0 => 'group_application',
+      1 => 'group_brochure',
+      2 => 'group_format_location',
+      3 => 'group_schedule',
+      4 => 'group_tuition',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -202,6 +202,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
       0 => 'field_included_in_tuition',
       1 => 'field_optional_programming',
       2 => 'field_tuition',
+      3 => 'field_payment_cancellation',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

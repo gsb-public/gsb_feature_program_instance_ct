@@ -110,6 +110,10 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     return;
   }
 
+  // Remove the n/a options for program format and program location category
+  unset($form['field_program_location']['und'][0]['field_program_format']['und']['#options']['_none']);
+  unset($form['field_program_location']['und'][0]['field_program_location_category']['und']['#options']['_none']);
+
   $form['field_search_field']['#attached'] = array(
     'js' => array(
       ctools_attach_js('gsb_feature_program_instance_ct_edit', 'gsb_feature_program_instance_ct'),
@@ -209,7 +213,7 @@ function gsb_feature_program_instance_ct_field_widget_link_field_form_alter(&$el
  * #after_build callback for changing the link widget text for the program location link.
  */
 function gsb_feature_program_instance_ct_program_location_link_after_build($element, &$form_state) {
-  $element['title']['#title'] = t('Name');
+  $element['title']['#title'] = t('Location Name');
   return $element;
 }
 
