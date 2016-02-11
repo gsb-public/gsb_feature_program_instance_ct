@@ -173,7 +173,14 @@ function gsb_feature_program_instance_ct_strongarm() {
           'weight' => '0',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'gsb_time_commitment' => array(
+          'expanded' => array(
+            'weight' => '3',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__program_instance'] = $strongarm;

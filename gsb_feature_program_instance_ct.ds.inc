@@ -236,12 +236,14 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
         0 => 'field_program',
         1 => 'field_instance_date',
         2 => 'field_program_location',
+        3 => 'gsb_time_commitment',
       ),
     ),
     'fields' => array(
       'field_program' => 'ds_content',
       'field_instance_date' => 'ds_content',
       'field_program_location' => 'ds_content',
+      'gsb_time_commitment' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
