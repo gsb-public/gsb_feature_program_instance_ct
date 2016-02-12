@@ -17,13 +17,6 @@ function gsb_feature_program_instance_ct_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'field_program_location';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'field_location' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-        ),
-      ),
-    ),
     'field_program_format' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -176,12 +169,10 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_program_format',
-        1 => 'field_location',
       ),
     ),
     'fields' => array(
       'field_program_format' => 'ds_content',
-      'field_location' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
