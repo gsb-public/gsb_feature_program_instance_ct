@@ -75,6 +75,37 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_faculty|node|program_instance|form';
+  $field_group->group_name = 'group_faculty';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'program_instance';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_main_vtab';
+  $field_group->data = array(
+    'label' => 'Faculty ',
+    'weight' => '14',
+    'children' => array(
+      0 => 'field_faculty_directors',
+      1 => 'field_faculty_label_1',
+      2 => 'field_faculty_1',
+      3 => 'field_faculty_label_2',
+      4 => 'field_faculty_2',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-faculty field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_faculty|node|program_instance|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_format_location|node|program_instance|form';
   $field_group->group_name = 'group_format_location';
   $field_group->entity_type = 'node';
@@ -102,6 +133,34 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_guest_speakers_advisors|node|program_instance|form';
+  $field_group->group_name = 'group_guest_speakers_advisors';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'program_instance';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_main_vtab';
+  $field_group->data = array(
+    'label' => 'Guest Speakers and Advisors',
+    'weight' => '15',
+    'children' => array(
+      0 => 'field_guest_speakers_advisors',
+      1 => 'field_guest_speakers_advisors_fc',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-guest-speakers-advisors field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_guest_speakers_advisors|node|program_instance|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_instance_dates|node|program_instance|form';
   $field_group->group_name = 'group_instance_dates';
   $field_group->entity_type = 'node';
@@ -110,7 +169,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Instance Dates',
-    'weight' => '6',
+    'weight' => '5',
     'children' => array(
       0 => 'field_instance_date',
       1 => 'field_instance_date_text_select',
@@ -140,13 +199,15 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => '',
-    'weight' => '7',
+    'weight' => '6',
     'children' => array(
-      0 => 'group_application',
-      1 => 'group_brochure',
-      2 => 'group_format_location',
-      3 => 'group_schedule',
-      4 => 'group_tuition',
+      0 => 'group_faculty',
+      1 => 'group_application',
+      2 => 'group_brochure',
+      3 => 'group_format_location',
+      4 => 'group_schedule',
+      5 => 'group_tuition',
+      6 => 'group_guest_speakers_advisors',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -220,7 +281,9 @@ function gsb_feature_program_instance_ct_field_group_info() {
   // Included for use with string extractors like potx.
   t(' Application Information');
   t('Brochure & Download Link');
+  t('Faculty ');
   t('Format & Location');
+  t('Guest Speakers and Advisors');
   t('Instance Dates');
   t('Schedule');
   t('Tuition');

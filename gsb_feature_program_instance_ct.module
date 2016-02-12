@@ -133,6 +133,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     }
   }
 
+  // Remove the n/a options for program format and program location category
   unset($form['field_instance_date_text_select']['und']['#options']['_none']);
   unset($form['field_instance_date_text_select']['und']['#title']);
 
@@ -156,6 +157,234 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
       ':input[name="field_apower_id[und][0][value]"]' => array('filled' => TRUE)
     ),
   );
+
+  // Fields on the 'Faculty' vertical tab...
+
+  //dpm($form);
+
+  // Field Collection: Faculty Directors
+
+  if (!empty($form['field_faculty_directors'][$language])) {
+
+    foreach ($form['field_faculty_directors'][$language] as $index => $data) {
+
+      if (is_integer($index)) {
+
+        $form['field_faculty_directors'][$language][$index]['field_person_ref']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'UseEntityReference'),
+            ),
+          ),
+        );
+        $form['field_faculty_directors'][$language][$index]['field_other_name']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_faculty_directors'][$language][$index]['field_image_single_public']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_faculty_directors'][$language][$index]['field_link_single']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_faculty_directors'][$language][$index]['field_academic_title']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        /*
+        $form['field_faculty_directors'][$language][$index]['field_faculty_director_title']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_faculty_directors'][$language][$index]['field_description']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        */
+
+        // Remove the n/a options for field_faculty_or_other
+        unset($form['field_faculty_directors'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
+
+        // Remove the n/a options for field_faculty_director_title
+        unset($form['field_faculty_directors'][$language][$index]['field_faculty_director_title'][$language]['#options']['_none']);
+
+      }
+
+    }
+  }
+
+  // Field Collection: Faculty 1
+
+  if (!empty($form['field_faculty_1'][$language])) {
+
+    foreach ($form['field_faculty_1'][$language] as $index => $data) {
+
+      if (is_integer($index)) {
+
+        $form['field_faculty_1'][$language][$index]['field_person_ref']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'UseEntityReference'),
+            ),
+          ),
+        );
+        $form['field_faculty_1'][$language][$index]['field_other_name']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_faculty_1'][$language][$index]['field_image_single_public']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_faculty_1'][$language][$index]['field_link_single']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_faculty_1'][$language][$index]['field_academic_title']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+
+        // Remove the n/a options for field_faculty_or_other
+        unset($form['field_faculty_1'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
+      }
+
+    }
+  }
+
+  // Field Collection: Faculty 2
+
+  if (!empty($form['field_faculty_2'][$language])) {
+
+    foreach ($form['field_faculty_2'][$language] as $index => $data) {
+
+      if (is_integer($index)) {
+
+        $form['field_faculty_2'][$language][$index]['field_person_ref']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'UseEntityReference'),
+            ),
+          ),
+        );
+        $form['field_faculty_2'][$language][$index]['field_other_name']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_faculty_2'][$language][$index]['field_image_single_public']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_faculty_2'][$language][$index]['field_link_single']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_faculty_2'][$language][$index]['field_academic_title']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+
+        // Remove the n/a options for field_faculty_or_other
+        unset($form['field_faculty_2'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
+      }
+
+    }
+  }
+
+  // Field Collection: Guest and Advisors
+
+  if (!empty($form['field_guest_speakers_advisors_fc'][$language])) {
+
+    foreach ($form['field_guest_speakers_advisors_fc'][$language] as $index => $data) {
+
+      if (is_integer($index)) {
+
+        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_person_ref']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'UseEntityReference'),
+            ),
+          ),
+        );
+        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_other_name']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_image_single_public']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_link_single']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_academic_title']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
+              array('value' => 'Other'),
+            ),
+          ),
+        );
+
+        // Remove the n/a options for field_faculty_or_other
+        unset($form['field_guest_speakers_advisors_fc'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
+      }
+
+    }
+  }
 
 }
 
