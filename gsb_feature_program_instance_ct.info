@@ -42,7 +42,6 @@ features[field_group][] = group_schedule|node|program_instance|form
 features[field_group][] = group_tuition|node|program_instance|form
 features[field_instance][] = field_collection_item-field_application_deadlines-field_date
 features[field_instance][] = field_collection_item-field_application_deadlines-field_deadline_text
-features[field_instance][] = field_collection_item-field_program_location-field_location
 features[field_instance][] = field_collection_item-field_program_location-field_program_location_link
 features[field_instance][] = node-program_instance-field_apower_id
 features[field_instance][] = node-program_instance-field_application_deadlines
