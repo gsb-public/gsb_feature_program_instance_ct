@@ -160,8 +160,6 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
   // Fields on the 'Faculty' vertical tab...
 
-  //dpm($form);
-
   // Field Collection: Faculty Directors
 
   if (!empty($form['field_faculty_directors'][$language])) {
@@ -170,7 +168,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
       if (is_integer($index)) {
 
-        $form['field_faculty_directors'][$language][$index]['field_person_ref']['#states'] = array(
+        $form['field_faculty_directors'][$language][$index]['field_person_fac_single_ref']['#states'] = array(
           'visible' => array(
             ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
               array('value' => 'UseEntityReference'),
@@ -241,7 +239,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
       if (is_integer($index)) {
 
-        $form['field_faculty_1'][$language][$index]['field_person_ref']['#states'] = array(
+        $form['field_faculty_1'][$language][$index]['field_person_fac_single_ref']['#states'] = array(
           'visible' => array(
             ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
               array('value' => 'UseEntityReference'),
@@ -292,7 +290,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
       if (is_integer($index)) {
 
-        $form['field_faculty_2'][$language][$index]['field_person_ref']['#states'] = array(
+        $form['field_faculty_2'][$language][$index]['field_person_fac_single_ref']['#states'] = array(
           'visible' => array(
             ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
               array('value' => 'UseEntityReference'),
@@ -343,7 +341,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
       if (is_integer($index)) {
 
-        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_person_ref']['#states'] = array(
+        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_person_fac_single_ref']['#states'] = array(
           'visible' => array(
             ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
               array('value' => 'UseEntityReference'),

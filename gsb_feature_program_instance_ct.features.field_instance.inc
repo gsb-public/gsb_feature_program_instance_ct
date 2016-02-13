@@ -364,7 +364,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 29,
+      'weight' => 31,
     ),
     'workbench_access_field' => 0,
   );
@@ -447,7 +447,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 30,
+      'weight' => 32,
     ),
     'workbench_access_field' => 0,
   );
@@ -543,7 +543,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 26,
+      'weight' => 29,
     ),
     'workbench_access_field' => 0,
   );
@@ -650,7 +650,11 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'bundle' => 'program_instance',
     'custom_add_another' => '',
     'custom_remove' => '',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -700,7 +704,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_display_on_finder',
-    'label' => 'Display on Program and Program Finder',
+    'label' => 'Display on program.',
     'required' => 0,
     'settings' => array(
       'custom_add_another' => '',
@@ -2292,7 +2296,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 27,
+      'weight' => 30,
     ),
     'workbench_access_field' => 0,
   );
@@ -2621,7 +2625,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 31,
+      'weight' => 33,
     ),
     'workbench_access_field' => 0,
   );
@@ -3084,7 +3088,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('Brochure');
   t('Date');
   t('Deadlines');
-  t('Display on Program and Program Finder');
+  t('Display on program.');
   t('Download Brochure Link');
   t('Faculty 1');
   t('Faculty 1 Header');
@@ -3096,7 +3100,6 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('Included in Tuition');
   t('Instance Date Text Select');
   t('Instance Label');
-  t('Location Name');
   t('Optional Programming Dates and Tuition');
   t('Payment & Cancellation URL');
   t('Prequalification URL');
