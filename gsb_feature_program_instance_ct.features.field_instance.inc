@@ -58,7 +58,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'M j Y - g:i:sa',
         'input_format_custom' => '',
-        'label_position' => 'above',
+        'label_position' => 'none',
         'no_fieldset' => 0,
         'repeat_collapsed' => 0,
         'text_parts' => array(),
@@ -289,7 +289,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_apower_id',
-    'label' => 'Apower ID',
+    'label' => 'APower ID',
     'required' => 0,
     'settings' => array(
       'better_formats' => array(
@@ -302,6 +302,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
           'image_text_equivalent' => 'image_text_equivalent',
           'markdown' => 'markdown',
           'markdown_lite_minus_resources' => 'markdown_lite_minus_resources',
+          'paragraphed_plain_text' => 0,
           'plain_text' => 'plain_text',
           'sidebar' => 'sidebar',
           'slideshow' => 'slideshow',
@@ -334,6 +335,9 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
             'markdown_lite_minus_resources' => array(
               'weight' => 0,
             ),
+            'paragraphed_plain_text' => array(
+              'weight' => 0,
+            ),
             'plain_text' => array(
               'weight' => 10,
             ),
@@ -364,7 +368,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 31,
+      'weight' => 32,
     ),
     'workbench_access_field' => 0,
   );
@@ -447,7 +451,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 32,
+      'weight' => 33,
     ),
     'workbench_access_field' => 0,
   );
@@ -640,7 +644,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 33,
+      'weight' => 47,
     ),
     'workbench_access_field' => 0,
   );
@@ -815,7 +819,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 34,
+      'weight' => 48,
     ),
     'workbench_access_field' => 0,
   );
@@ -1446,7 +1450,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 41,
+      'weight' => 47,
     ),
     'workbench_access_field' => 0,
   );
@@ -1521,7 +1525,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 42,
+      'weight' => 48,
     ),
     'workbench_access_field' => 0,
   );
@@ -1592,8 +1596,9 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
           'gsb_wysiwyg_text' => 0,
           'image_resource_caption' => 0,
           'image_text_equivalent' => 0,
-          'markdown' => 'markdown',
-          'markdown_lite_minus_resources' => 0,
+          'markdown' => 0,
+          'markdown_lite_minus_resources' => 'markdown_lite_minus_resources',
+          'paragraphed_plain_text' => 0,
           'plain_text' => 0,
           'sidebar' => 0,
           'slideshow' => 0,
@@ -1624,6 +1629,9 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
               'weight' => 0,
             ),
             'markdown_lite_minus_resources' => array(
+              'weight' => 0,
+            ),
+            'paragraphed_plain_text' => array(
               'weight' => 0,
             ),
             'plain_text' => array(
@@ -1763,7 +1771,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'M j, Y',
         'input_format_custom' => '',
-        'label_position' => 'above',
+        'label_position' => 'none',
         'no_fieldset' => 1,
         'repeat_collapsed' => 0,
         'text_parts' => array(),
@@ -2368,8 +2376,9 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
           'gsb_wysiwyg_text' => 0,
           'image_resource_caption' => 0,
           'image_text_equivalent' => 0,
-          'markdown' => 'markdown',
-          'markdown_lite_minus_resources' => 0,
+          'markdown' => 0,
+          'markdown_lite_minus_resources' => 'markdown_lite_minus_resources',
+          'paragraphed_plain_text' => 0,
           'plain_text' => 0,
           'sidebar' => 0,
           'slideshow' => 0,
@@ -2400,6 +2409,9 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
               'weight' => 0,
             ),
             'markdown_lite_minus_resources' => array(
+              'weight' => 0,
+            ),
+            'paragraphed_plain_text' => array(
               'weight' => 0,
             ),
             'plain_text' => array(
@@ -2501,7 +2513,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'configurable_class' => 0,
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'user',
+        'target' => 'default',
         'title' => '',
       ),
       'custom_add_another' => '',
@@ -2625,7 +2637,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 33,
+      'weight' => 34,
     ),
     'workbench_access_field' => 0,
   );
@@ -2700,7 +2712,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_program',
     'label' => 'Program',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'custom_add_another' => '',
       'custom_remove' => '',
@@ -3048,7 +3060,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'configurable_class' => 0,
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'user',
+        'target' => 'default',
         'title' => '',
       ),
       'custom_add_another' => '',
@@ -3082,7 +3094,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Apower ID');
+  t('APower ID');
   t('Application URL');
   t('Apply Button URL');
   t('Brochure');

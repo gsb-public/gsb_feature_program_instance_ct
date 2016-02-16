@@ -13,6 +13,33 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_apower_id|node|program_instance|form';
+  $field_group->group_name = 'group_apower_id';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'program_instance';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_main_vtab';
+  $field_group->data = array(
+    'label' => 'APower ID',
+    'weight' => '13',
+    'children' => array(
+      0 => 'field_apower_id',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-apower-id field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_apower_id|node|program_instance|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_application|node|program_instance|form';
   $field_group->group_name = 'group_application';
   $field_group->entity_type = 'node';
@@ -21,14 +48,13 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => ' Application Information',
-    'weight' => '12',
+    'weight' => '17',
     'children' => array(
-      0 => 'field_apower_id',
-      1 => 'field_application_deadlines',
-      2 => 'field_is_application_open',
-      3 => 'field_application_url',
-      4 => 'field_prequalification_url',
-      5 => 'field_link_apply_button',
+      0 => 'field_application_deadlines',
+      1 => 'field_is_application_open',
+      2 => 'field_application_url',
+      3 => 'field_prequalification_url',
+      4 => 'field_link_apply_button',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -54,7 +80,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Brochure & Download Link',
-    'weight' => '13',
+    'weight' => '18',
     'children' => array(
       0 => 'field_brochure_pdf',
       1 => 'field_download_brochure_link',
@@ -83,7 +109,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Faculty ',
-    'weight' => '14',
+    'weight' => '19',
     'children' => array(
       0 => 'field_faculty_1',
       1 => 'field_faculty_2',
@@ -114,7 +140,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Format & Location',
-    'weight' => '10',
+    'weight' => '15',
     'children' => array(
       0 => 'field_program_location',
     ),
@@ -141,7 +167,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Guest Speakers and Advisors',
-    'weight' => '15',
+    'weight' => '20',
     'children' => array(
       0 => 'field_guest_speakers_advisors',
       1 => 'field_guest_speakers_advisors_fc',
@@ -157,6 +183,35 @@ function gsb_feature_program_instance_ct_field_group_info() {
     ),
   );
   $field_groups['group_guest_speakers_advisors|node|program_instance|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_instance_dates_vtab|node|program_instance|form';
+  $field_group->group_name = 'group_instance_dates_vtab';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'program_instance';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_main_vtab';
+  $field_group->data = array(
+    'label' => 'Instance Dates',
+    'weight' => '12',
+    'children' => array(
+      0 => 'field_instance_date',
+      1 => 'field_instance_date_text_select',
+      2 => 'field_instance_text',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-instance-dates-vtab field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_instance_dates_vtab|node|program_instance|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -208,6 +263,8 @@ function gsb_feature_program_instance_ct_field_group_info() {
       4 => 'group_guest_speakers_advisors',
       5 => 'group_schedule',
       6 => 'group_tuition',
+      7 => 'group_instance_dates_vtab',
+      8 => 'group_apower_id',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -231,7 +288,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Schedule',
-    'weight' => '9',
+    'weight' => '14',
     'children' => array(
       0 => 'field_program_schedule',
     ),
@@ -258,7 +315,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Tuition',
-    'weight' => '11',
+    'weight' => '16',
     'children' => array(
       0 => 'field_included_in_tuition',
       1 => 'field_optional_programming',
@@ -280,6 +337,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   // Translatables
   // Included for use with string extractors like potx.
   t(' Application Information');
+  t('APower ID');
   t('Brochure & Download Link');
   t('Faculty ');
   t('Format & Location');
