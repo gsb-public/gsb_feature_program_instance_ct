@@ -216,36 +216,6 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_instance_dates|node|program_instance|form';
-  $field_group->group_name = 'group_instance_dates';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'program_instance';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Instance Dates',
-    'weight' => '5',
-    'children' => array(
-      0 => 'field_instance_date',
-      1 => 'field_instance_date_text_select',
-      2 => 'field_instance_text',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'label' => 'Instance Dates',
-      'instance_settings' => array(
-        'required_fields' => 1,
-        'classes' => 'group-instance-dates field-group-fieldset',
-        'description' => '',
-      ),
-      'formatter' => 'collapsible',
-    ),
-  );
-  $field_groups['group_instance_dates|node|program_instance|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
   $field_group->identifier = 'group_main_vtab|node|program_instance|form';
   $field_group->group_name = 'group_main_vtab';
   $field_group->entity_type = 'node';
