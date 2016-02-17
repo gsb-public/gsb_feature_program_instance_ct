@@ -101,6 +101,63 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_faculty1|node|program_instance|form';
+  $field_group->group_name = 'group_faculty1';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'program_instance';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_main_vtab';
+  $field_group->data = array(
+    'label' => 'Faculty 1',
+    'weight' => '20',
+    'children' => array(
+      0 => 'field_faculty_1',
+      1 => 'field_faculty_label_1',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'label' => 'Faculty 1',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'classes' => 'group-faculty1 field-group-tab',
+        'description' => '',
+      ),
+      'formatter' => 'closed',
+    ),
+  );
+  $field_groups['group_faculty1|node|program_instance|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_faculty2|node|program_instance|form';
+  $field_group->group_name = 'group_faculty2';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'program_instance';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_main_vtab';
+  $field_group->data = array(
+    'label' => 'Faculty 2',
+    'weight' => '21',
+    'children' => array(
+      0 => 'field_faculty_2',
+      1 => 'field_faculty_label_2',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-faculty2 field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_faculty2|node|program_instance|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_faculty|node|program_instance|form';
   $field_group->group_name = 'group_faculty';
   $field_group->entity_type = 'node';
@@ -108,23 +165,20 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
-    'label' => 'Faculty ',
+    'label' => 'Faculty Directors',
     'weight' => '19',
     'children' => array(
-      0 => 'field_faculty_1',
-      1 => 'field_faculty_2',
-      2 => 'field_faculty_directors',
-      3 => 'field_faculty_label_1',
-      4 => 'field_faculty_label_2',
+      0 => 'field_faculty_directors',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'Faculty Directors',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-faculty field-group-tab',
         'required_fields' => 1,
+        'classes' => 'group-faculty field-group-tab',
+        'description' => '',
       ),
+      'formatter' => 'closed',
     ),
   );
   $field_groups['group_faculty|node|program_instance|form'] = $field_group;
@@ -167,7 +221,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Guest Speakers and Advisors',
-    'weight' => '20',
+    'weight' => '22',
     'children' => array(
       0 => 'field_guest_speakers_advisors',
       1 => 'field_guest_speakers_advisors_fc',
@@ -235,6 +289,8 @@ function gsb_feature_program_instance_ct_field_group_info() {
       6 => 'group_tuition',
       7 => 'group_instance_dates_vtab',
       8 => 'group_apower_id',
+      9 => 'group_faculty1',
+      10 => 'group_faculty2',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -309,7 +365,9 @@ function gsb_feature_program_instance_ct_field_group_info() {
   t(' Application Information');
   t('APower ID');
   t('Brochure & Download Link');
-  t('Faculty ');
+  t('Faculty 1');
+  t('Faculty 2');
+  t('Faculty Directors');
   t('Format & Location');
   t('Guest Speakers and Advisors');
   t('Instance Dates');

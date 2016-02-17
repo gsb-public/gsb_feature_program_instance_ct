@@ -893,7 +893,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 37,
+      'weight' => 38,
     ),
     'workbench_access_field' => 0,
   );
@@ -967,7 +967,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 39,
+      'weight' => 40,
     ),
     'workbench_access_field' => 0,
   );
@@ -1177,7 +1177,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 36,
+      'weight' => 37,
     ),
     'workbench_access_field' => 0,
   );
@@ -1313,7 +1313,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 38,
+      'weight' => 39,
     ),
     'workbench_access_field' => 0,
   );
@@ -1525,7 +1525,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 48,
+      'weight' => 49,
     ),
     'workbench_access_field' => 0,
   );
