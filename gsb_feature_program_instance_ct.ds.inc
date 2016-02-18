@@ -21,7 +21,14 @@ function gsb_feature_program_instance_ct_ds_field_settings_info() {
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
-          'suffix' => '<span class="pipe">|</span>',
+        ),
+      ),
+    ),
+    'field_program_location_link' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'prefix' => '<span class="pipe">|</span>',
         ),
       ),
     ),
@@ -169,10 +176,12 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_program_format',
+        1 => 'field_program_location_link',
       ),
     ),
     'fields' => array(
       'field_program_format' => 'ds_content',
+      'field_program_location_link' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
