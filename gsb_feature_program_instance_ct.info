@@ -91,5 +91,5 @@ features[variable][] = workbench_access_node_type_program_instance
 features[variable][] = workbench_moderation_default_state_program_instance
 features_exclude[field_base][field_program_schedule] = field_program_schedule
 features_exclude[field_base][field_link_for_apply_button] = field_link_for_apply_button
-features_exclude[field_instance][node-program_instance-field_link_for_apply_button] = node-program_instance-field_link_for_apply_button
 features_exclude[field_group][group_instance_dates|node|program_instance|form] = group_instance_dates|node|program_instance|form
+features_exclude[field_instance][node-program_instance-field_link_for_apply_button] = node-program_instance-field_link_for_apply_button
