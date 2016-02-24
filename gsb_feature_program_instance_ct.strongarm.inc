@@ -154,6 +154,18 @@ function gsb_feature_program_instance_ct_strongarm() {
       'field_program_related' => array(
         'custom_settings' => FALSE,
       ),
+      'field_program_faculty' => array(
+        'custom_settings' => TRUE,
+      ),
+      'field_program_curriculum_one' => array(
+        'custom_settings' => FALSE,
+      ),
+      'field_program_curriculum_two' => array(
+        'custom_settings' => FALSE,
+      ),
+      'program_contact' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -178,6 +190,14 @@ function gsb_feature_program_instance_ct_strongarm() {
           'expanded' => array(
             'weight' => '3',
             'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'field_program_faculty' => array(
+            'weight' => '0',
+            'visible' => FALSE,
           ),
         ),
       ),
