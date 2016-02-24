@@ -455,6 +455,11 @@ function gsb_feature_program_instance_ct_field_extra_fields() {
       'description' => t('Time Commitment'),
       'weight' => 0,
     ),
+    'gsb_key_image' => array(
+      'label' => t('Key Image'),
+      'description' => t('Key Image'),
+      'weight' => 0,
+    ),
   );
 
   return $extra;
@@ -464,10 +469,26 @@ function gsb_feature_program_instance_ct_field_extra_fields() {
  * Implements hook_node_view().
  */
 function gsb_feature_program_instance_ct_node_view($entity, $view_mode, $langcode) {
-  $fields = field_extra_fields_get_display('node', $entity->type, $view_mode);
+
   if ($entity->type != 'program_instance') {
     return;
   }
+
+  $fields = field_extra_fields_get_display('node', $entity->type, $view_mode);
+
+  // Check if the 'time commitment' field is visible
+  if (!empty($fields['gsb_time_commitment']['visible'])) {
+    gsb_feature_program_instance_ct_time_commitment($entity, $view_mode, $langcode);
+  }
+
+  // Check if the 'key image' field is visible
+  if (!empty($fields['gsb_key_image']['visible'])) {
+    gsb_feature_program_ct_program_instance_ct_key_image($entity, $view_mode, $langcode);
+  }
+
+}
+
+function gsb_feature_program_instance_ct_time_commitment($entity, $view_mode, $langcode) {
   $program_node = node_load($entity->field_program['und'][0]['target_id']);
   $time_commitment_term = taxonomy_term_load($program_node->field_time_commitment['und'][0]['tid']);
   $entity->content['gsb_time_commitment'] = array(
@@ -479,4 +500,25 @@ function gsb_feature_program_instance_ct_node_view($entity, $view_mode, $langcod
     ),
     '#children' => $time_commitment_term->name,
   );
+}
+
+function gsb_feature_program_ct_program_instance_ct_key_image($entity, $view_mode, $langcode) {
+  $language = $entity->language;
+
+  $program_node = node_load($entity->field_program[$language][0]['target_id']);
+  if (!empty($program_node->field_image_key_image[$language][0])) {
+
+    $key_image = theme('image' , array('path' => $program_node->field_image_key_image[$language][0]['uri']));
+
+    $entity->content['gsb_key_image'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array(
+          'gsb-key-image',
+        ),
+      ),
+      '#children' => $key_image,
+    );
+  }
+
 }
