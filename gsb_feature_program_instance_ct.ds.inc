@@ -156,6 +156,92 @@ function gsb_feature_program_instance_ct_ds_field_settings_info() {
   );
   $export['node|program_instance|featured_program'] = $ds_fieldsetting;
 
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|program_instance|field_program_faculty';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'program_instance';
+  $ds_fieldsetting->view_mode = 'field_program_faculty';
+  $ds_fieldsetting->settings = array(
+    'field_faculty_1' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+        ),
+      ),
+    ),
+    'field_faculty_2' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+        ),
+      ),
+    ),
+    'field_faculty_directors' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb' => 'Faculty Leadership',
+          'lb-el' => 'h2',
+          'lb-col' => TRUE,
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_faculty_label_1' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'h2',
+          'ow-cl' => '',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_faculty_label_2' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'h2',
+          'ow-cl' => '',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_guest_speakers_advisors' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'h2',
+          'ow-cl' => '',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_guest_speakers_advisors_fc' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+        ),
+      ),
+    ),
+  );
+  $export['node|program_instance|field_program_faculty'] = $ds_fieldsetting;
+
   return $export;
 }
 
@@ -192,6 +278,7 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
   );
   $export['field_collection_item|field_program_location|default'] = $ds_layout;
 
@@ -288,6 +375,47 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
     'layout_link_custom' => '',
   );
   $export['node|program_instance|featured_program'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|program_instance|field_program_faculty';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'program_instance';
+  $ds_layout->view_mode = 'field_program_faculty';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_faculty_directors',
+        1 => 'field_faculty_label_1',
+        2 => 'field_faculty_1',
+        3 => 'field_faculty_label_2',
+        4 => 'field_faculty_2',
+        5 => 'field_guest_speakers_advisors',
+        6 => 'field_guest_speakers_advisors_fc',
+      ),
+    ),
+    'fields' => array(
+      'field_faculty_directors' => 'ds_content',
+      'field_faculty_label_1' => 'ds_content',
+      'field_faculty_1' => 'ds_content',
+      'field_faculty_label_2' => 'ds_content',
+      'field_faculty_2' => 'ds_content',
+      'field_guest_speakers_advisors' => 'ds_content',
+      'field_guest_speakers_advisors_fc' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['node|program_instance|field_program_faculty'] = $ds_layout;
 
   return $export;
 }
