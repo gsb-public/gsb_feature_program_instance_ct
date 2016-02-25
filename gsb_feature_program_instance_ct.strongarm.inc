@@ -21,7 +21,7 @@ function gsb_feature_program_instance_ct_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_pattern_node_program_instance';
-  $strongarm->value = '[node:field-instance-date:value:day_month_and_year][node:field_instance_text] [node:field_instance_label] - [node:field-program:title]';
+  $strongarm->value = '[node:field-instance-date:value:day_month_and_year] [node:field_instance_text] [node:field_instance_label] - [node:field-program:title]';
   $export['auto_entitylabel_pattern_node_program_instance'] = $strongarm;
 
   $strongarm = new stdClass();
