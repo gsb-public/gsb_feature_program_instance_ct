@@ -242,6 +242,55 @@ function gsb_feature_program_instance_ct_ds_field_settings_info() {
   );
   $export['node|program_instance|field_program_faculty'] = $ds_fieldsetting;
 
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|program_instance|program_explore_other';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'program_instance';
+  $ds_fieldsetting->view_mode = 'program_explore_other';
+  $ds_fieldsetting->settings = array(
+    'field_instance_date' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_program' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_program_location' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+  );
+  $export['node|program_instance|program_explore_other'] = $ds_fieldsetting;
+
   return $export;
 }
 
@@ -416,6 +465,41 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
     'layout_disable_css' => FALSE,
   );
   $export['node|program_instance|field_program_faculty'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|program_instance|program_explore_other';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'program_instance';
+  $ds_layout->view_mode = 'program_explore_other';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'gsb_key_image',
+        1 => 'field_program',
+        2 => 'field_instance_date',
+        3 => 'field_program_location',
+      ),
+    ),
+    'fields' => array(
+      'gsb_key_image' => 'ds_content',
+      'field_program' => 'ds_content',
+      'field_instance_date' => 'ds_content',
+      'field_program_location' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['node|program_instance|program_explore_other'] = $ds_layout;
 
   return $export;
 }

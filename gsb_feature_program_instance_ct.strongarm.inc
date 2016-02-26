@@ -166,6 +166,21 @@ function gsb_feature_program_instance_ct_strongarm() {
       'program_contact' => array(
         'custom_settings' => FALSE,
       ),
+      'program_explore_other' => array(
+        'custom_settings' => TRUE,
+      ),
+      'faculty_leadership' => array(
+        'custom_settings' => FALSE,
+      ),
+      'faculty_one' => array(
+        'custom_settings' => FALSE,
+      ),
+      'faculty_two' => array(
+        'custom_settings' => FALSE,
+      ),
+      'guest_speakers_advisors' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -198,6 +213,20 @@ function gsb_feature_program_instance_ct_strongarm() {
           'field_program_faculty' => array(
             'weight' => '0',
             'visible' => FALSE,
+          ),
+          'program_explore_other' => array(
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+        ),
+        'gsb_key_image' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'program_explore_other' => array(
+            'weight' => '0',
+            'visible' => TRUE,
           ),
         ),
       ),
