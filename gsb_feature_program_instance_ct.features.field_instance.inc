@@ -578,7 +578,11 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'bundle' => 'program_instance',
     'custom_add_another' => '',
     'custom_remove' => '',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'no_brochure_download',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
