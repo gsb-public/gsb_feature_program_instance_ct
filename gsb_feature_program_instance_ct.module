@@ -111,8 +111,8 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   }
 
   // Remove the n/a options for program format and program location category
-  unset($form['field_program_location']['und'][0]['field_program_format']['und']['#options']['_none']);
-  unset($form['field_program_location']['und'][0]['field_program_location_category']['und']['#options']['_none']);
+  unset($form['field_program_location'][$language][0]['field_program_format'][$language]['#options']['_none']);
+  unset($form['field_program_location'][$language][0]['field_program_location_category'][$language]['#options']['_none']);
 
   $form['field_search_field']['#attached'] = array(
     'js' => array(
@@ -120,7 +120,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     ),
   );
 
-  $form['field_brochure_pdf']['und'][0]['#description'] = '';
+  $form['field_brochure_pdf'][$language][0]['#description'] = '';
 
   $action = $form['#action'];
 
@@ -129,13 +129,16 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     if (!empty($program_nid)) {
       $program_node = node_load($program_nid);
       $ref = $program_node->title . " (" . $program_nid . ")";
-      $form['field_program']['und'][0]['target_id']['#default_value'] = $ref; //"Program X (407466)";
+      $form['field_program'][$language][0]['target_id']['#default_value'] = $ref; //"Program X (407466)";
     }
   }
 
   // Remove the n/a options for program format and program location category
-  unset($form['field_instance_date_text_select']['und']['#options']['_none']);
-  unset($form['field_instance_date_text_select']['und']['#title']);
+  unset($form['field_instance_date_text_select'][$language]['#options']['_none']);
+  unset($form['field_instance_date_text_select'][$language]['#title']);
+
+  // Remove the n/a option for brochure options radio buttons
+  unset($form['field_brochure_options'][$language]['#options']['_none']);
 
   $form['field_instance_text']['#states'] = array(
     'visible' => array(
@@ -154,7 +157,28 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
   $form['field_link_for_apply_button']['#states'] = array(
     'visible' => array(
-      ':input[name="field_apower_id[und][0][value]"]' => array('filled' => TRUE)
+      ':input[name="field_apower_id[' . $language . '][0][value]"]' => array('filled' => TRUE)
+    ),
+  );
+
+  // Visible state settings for the Brochure PDF upload and link fields
+
+  $form['field_brochure_pdf']['#states'] = array(
+    'invisible' => array(
+      ':input[name="field_brochure_options[' . $language . ']"],value="brochure_link_pdf"' => array(
+        '!value' => 'brochure_link_pdf',
+      ),
+      ':input[name="field_brochure_options[' . $language . ']"],value="brochure_link_ee_lead_form"' => array(
+        '!value' => 'brochure_link_ee_lead_form',
+      )
+    ),
+  );
+  // 'value' => 'brochure_link_ee_lead_form',
+  $form['field_download_brochure_link']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_brochure_options[' . $language . ']"]' => array(
+        'value' => 'brochure_link_other',
+      )
     ),
   );
 
