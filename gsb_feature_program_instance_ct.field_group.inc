@@ -170,6 +170,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
     'weight' => '19',
     'children' => array(
       0 => 'field_faculty_directors',
+      1 => 'field_edit_faculty_page',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

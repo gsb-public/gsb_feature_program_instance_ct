@@ -184,6 +184,20 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
   // Fields on the 'Faculty' vertical tab...
 
+  // set the Edit Faculty Page markup
+  if (!empty($form['#node'])) {
+    $program_node = node_load($form['#node']->field_program[$language][0]['target_id']);
+    $edit_path = _gsb_feature_program_ct_create_ppp_path($program_node, 'faculty');
+    $edit_path = drupal_lookup_path('source', $edit_path);
+    if ($edit_path) {
+      $edit_path = $edit_path . '/edit';
+      $form['field_edit_faculty_page'][$language][0]['markup']['#markup'] = '<a href="/' . $edit_path . '" target="_blank">' . t('Edit Faculty Page') . '</a>';
+    }
+    else {
+      unset($form['field_edit_faculty_page']);
+    }
+  }
+
   // Field Collection: Faculty Directors
 
   if (!empty($form['field_faculty_directors'][$language])) {

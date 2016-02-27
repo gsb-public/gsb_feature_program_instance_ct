@@ -992,6 +992,86 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
+  // Exported field_instance: 'node-program_instance-field_edit_faculty_page'.
+  $field_instances['node-program_instance-field_edit_faculty_page'] = array(
+    'bundle' => 'program_instance',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'compact' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'markup',
+        'settings' => array(
+          'conditions' => array(),
+        ),
+        'type' => 'markup_default',
+        'weight' => 32,
+      ),
+      'expanded' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured_program' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'field_program_faculty' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'program_explore_other' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_edit_faculty_page',
+    'label' => 'Edit Faculty Page',
+    'required' => 0,
+    'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'markup',
+      'settings' => array(),
+      'type' => 'markup',
+      'weight' => 51,
+    ),
+    'workbench_access_field' => 0,
+  );
+
   // Exported field_instance: 'node-program_instance-field_faculty_1'.
   $field_instances['node-program_instance-field_faculty_1'] = array(
     'bundle' => 'program_instance',
@@ -1167,7 +1247,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 50,
+      'weight' => 53,
     ),
     'workbench_access_field' => 0,
   );
@@ -1257,7 +1337,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 49,
+      'weight' => 52,
     ),
     'workbench_access_field' => 0,
   );
@@ -1559,7 +1639,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 49,
+      'weight' => 52,
     ),
     'workbench_access_field' => 0,
   );
@@ -1711,7 +1791,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 47,
+      'weight' => 52,
     ),
     'workbench_access_field' => 0,
   );
@@ -1802,7 +1882,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 49,
+      'weight' => 53,
     ),
     'workbench_access_field' => 0,
   );
@@ -3577,6 +3657,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('Deadlines');
   t('Display on program.');
   t('Download Brochure Link');
+  t('Edit Faculty Page');
   t('Faculty 1');
   t('Faculty 1 Header');
   t('Faculty 2');
