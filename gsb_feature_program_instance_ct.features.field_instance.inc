@@ -643,6 +643,12 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'program_explore_other' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),

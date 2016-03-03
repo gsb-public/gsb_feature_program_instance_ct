@@ -228,6 +228,10 @@ function gsb_feature_program_instance_ct_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'field_program_faculty' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
         ),
       ),
     ),
