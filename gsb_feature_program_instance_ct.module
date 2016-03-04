@@ -174,6 +174,12 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     ),
   );
 
+  $form['field_link_apply_button']['#states'] = array(
+    'required' => array(
+      ':input[name="field_is_application_open[' . $language . ']"]' => array('checked' => TRUE),
+    ),
+  );
+
   // Visible state settings for the Brochure PDF upload and link fields
 
   $form['field_brochure_pdf']['#states'] = array(
@@ -198,7 +204,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   // Fields on the 'Faculty' vertical tab...
 
   // set the Edit Faculty Page markup
-  if (!empty($form['#node'])) {
+  if (!empty($form['#node']) && !empty($form['#node']->field_program[$language][0]['target_id'])) {
     $program_node = node_load($form['#node']->field_program[$language][0]['target_id']);
     $edit_path = _gsb_feature_program_ct_create_ppp_path($program_node, 'faculty');
     $edit_path = drupal_lookup_path('source', $edit_path);
@@ -433,11 +439,17 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
  */
 function gsb_feature_program_instance_ct_node_validate($form, &$form_state) {
   if (!empty($form_state['values'])) {
-    if ($form_state['values']['field_display_on_finder_select']['und'][0]['value'] == 'visible') {
-      $form_state['values']['field_display_on_finder']['und'][0]['value'] = 1;
+    $language = $form['language']['#value'];
+    if ($form_state['values']['field_display_on_finder_select'][$language][0]['value'] == 'visible') {
+      $form_state['values']['field_display_on_finder'][$language][0]['value'] = 1;
     }
     else {
-      $form_state['values']['field_display_on_finder']['und'][0]['value'] = 0;
+      $form_state['values']['field_display_on_finder'][$language][0]['value'] = 0;
+    }
+    if ($form_state['values']['field_is_application_open'][$language][0]['value'] == 1 && $form_state['values']['field_link_apply_button'][$language][0]['url'] == "") {
+      // set error
+      $label = $form['field_link_apply_button'][$language]['#title'];
+      form_set_error('field_link_apply_button]['.$language.'][0][url', $label . ' field is required.');
     }
   }
 }
