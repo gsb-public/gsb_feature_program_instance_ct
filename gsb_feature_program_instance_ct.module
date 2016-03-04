@@ -110,6 +110,15 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     return;
   }
 
+  $form['#validate'][] = 'gsb_feature_program_instance_ct_node_validate';
+
+  $form['field_display_on_finder']['#access'] = FALSE;
+  unset($form['field_display_on_finder_select'][$language]['#options']['_none']);
+  $form['field_display_on_finder_select'][$language]['#default_value'] = 'hidden';
+  if ($form['field_display_on_finder'][$language]['#default_value'] == 1) {
+    $form['field_display_on_finder_select'][$language]['#default_value'] = 'visible';
+  }
+
   // Remove the n/a options for program format and program location category
   unset($form['field_program_location'][$language][0]['field_program_format'][$language]['#options']['_none']);
   unset($form['field_program_location'][$language][0]['field_program_location_category'][$language]['#options']['_none']);
@@ -417,6 +426,20 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     }
   }
 
+}
+
+/**
+ * Handle validate for the Program Instance node
+ */
+function gsb_feature_program_instance_ct_node_validate($form, &$form_state) {
+  if (!empty($form_state['values'])) {
+    if ($form_state['values']['field_display_on_finder_select']['und'][0]['value'] == 'visible') {
+      $form_state['values']['field_display_on_finder']['und'][0]['value'] = 1;
+    }
+    else {
+      $form_state['values']['field_display_on_finder']['und'][0]['value'] = 0;
+    }
+  }
 }
 
 /**
