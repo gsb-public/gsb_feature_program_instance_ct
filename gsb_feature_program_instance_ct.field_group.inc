@@ -48,7 +48,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => ' Application Information',
-    'weight' => '13',
+    'weight' => '14',
     'children' => array(
       0 => 'field_application_deadlines',
       1 => 'field_is_application_open',
@@ -80,7 +80,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Brochure & Download Link',
-    'weight' => '14',
+    'weight' => '15',
     'children' => array(
       0 => 'field_brochure_pdf',
       1 => 'field_download_brochure_link',
@@ -110,7 +110,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Faculty 1',
-    'weight' => '16',
+    'weight' => '17',
     'children' => array(
       0 => 'field_faculty_1',
       1 => 'field_faculty_label_1',
@@ -139,7 +139,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Faculty 2',
-    'weight' => '17',
+    'weight' => '18',
     'children' => array(
       0 => 'field_faculty_2',
       1 => 'field_faculty_label_2',
@@ -167,7 +167,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Faculty Directors',
-    'weight' => '15',
+    'weight' => '16',
     'children' => array(
       0 => 'field_faculty_directors',
       1 => 'field_edit_faculty_page',
@@ -223,7 +223,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Guest Speakers and Advisors',
-    'weight' => '18',
+    'weight' => '19',
     'children' => array(
       0 => 'field_guest_speakers_advisors',
       1 => 'field_guest_speakers_advisors_fc',
@@ -293,6 +293,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
       8 => 'group_instance_dates_vtab',
       9 => 'group_schedule',
       10 => 'group_tuition',
+      11 => 'group_optional_programming',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -304,6 +305,33 @@ function gsb_feature_program_instance_ct_field_group_info() {
     ),
   );
   $field_groups['group_main_vtab|node|program_instance|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_optional_programming|node|program_instance|form';
+  $field_group->group_name = 'group_optional_programming';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'program_instance';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_main_vtab';
+  $field_group->data = array(
+    'label' => 'Optional Programming',
+    'weight' => '13',
+    'children' => array(
+      0 => 'field_optional_programming',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-optional-programming field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_optional_programming|node|program_instance|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -346,9 +374,8 @@ function gsb_feature_program_instance_ct_field_group_info() {
     'weight' => '12',
     'children' => array(
       0 => 'field_included_in_tuition',
-      1 => 'field_optional_programming',
-      2 => 'field_tuition',
-      3 => 'field_payment_cancellation',
+      1 => 'field_tuition',
+      2 => 'field_payment_cancellation',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -373,6 +400,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   t('Format & Location');
   t('Guest Speakers and Advisors');
   t('Instance Dates');
+  t('Optional Programming');
   t('Schedule');
   t('Tuition');
 

@@ -48,6 +48,7 @@ features[field_group][] = group_format_location|node|program_instance|form
 features[field_group][] = group_guest_speakers_advisors|node|program_instance|form
 features[field_group][] = group_instance_dates_vtab|node|program_instance|form
 features[field_group][] = group_main_vtab|node|program_instance|form
+features[field_group][] = group_optional_programming|node|program_instance|form
 features[field_group][] = group_schedule|node|program_instance|form
 features[field_group][] = group_tuition|node|program_instance|form
 features[field_instance][] = field_collection_item-field_application_deadlines-field_date

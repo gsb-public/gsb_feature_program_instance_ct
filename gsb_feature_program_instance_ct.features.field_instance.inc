@@ -478,7 +478,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 32,
+      'weight' => 31,
     ),
     'workbench_access_field' => 0,
   );
@@ -1250,7 +1250,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 56,
+      'weight' => 61,
     ),
     'workbench_access_field' => 0,
   );
@@ -1340,7 +1340,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 53,
+      'weight' => 61,
     ),
     'workbench_access_field' => 0,
   );
@@ -1581,7 +1581,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 55,
+      'weight' => 60,
     ),
     'workbench_access_field' => 0,
   );
@@ -1732,7 +1732,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 52,
+      'weight' => 60,
     ),
     'workbench_access_field' => 0,
   );
@@ -1884,7 +1884,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 55,
+      'weight' => 60,
     ),
     'workbench_access_field' => 0,
   );
@@ -1975,7 +1975,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 56,
+      'weight' => 61,
     ),
     'workbench_access_field' => 0,
   );
@@ -2848,7 +2848,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 31,
+      'weight' => 30,
     ),
     'workbench_access_field' => 0,
   );
@@ -3217,7 +3217,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 33,
+      'weight' => 32,
     ),
     'workbench_access_field' => 0,
   );
