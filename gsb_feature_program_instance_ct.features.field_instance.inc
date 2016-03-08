@@ -3015,7 +3015,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'custom_remove' => '',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Use a relative link only (the linked page must be on gsb.stanford.edu). | Example: /programs/example-link',
     'display' => array(
       'compact' => array(
         'label' => 'above',
@@ -3773,6 +3773,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('Text');
   t('The application is open.');
   t('Tuition');
+  t('Use a relative link only (the linked page must be on gsb.stanford.edu). | Example: /programs/example-link');
 
   return $field_instances;
 }
