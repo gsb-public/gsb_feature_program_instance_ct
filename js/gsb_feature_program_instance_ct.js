@@ -6,44 +6,50 @@
 Drupal.behaviors.gsbProgramInstance = {
   attach: function (context) {
 
-    $(context).find('.gsb-program-instance-ct-display-on-finder').once(function () {
+    // Remove any existing display-finder checkboxes
 
-      var $element = $(this);
+    $('input.gsb-program-instance-ct-display-on-finder').remove();
 
-      // Create a new Drupal.ajax object that responds to the
-      // gsb_program_instance_display_on_finder_change event.
-      var ajax = new Drupal.ajax(false, $element, {
-        event: 'gsb_program_instance_display_on_finder_change',
-        url: Drupal.settings.basePath + 'gsb-feature-program-instance-ct/display-on-finder-update/node/' + $element.data('nid')
+    // Loop thru each of the display-on-finder-data spans
+
+    $('span.display-on-finder-data').each(function() {
+      var nid = $(this).attr('data-nid');
+      var checked = 'checked';
+      if ($(this).attr('data-display-finder') == 0) {
+        checked = '';
+      }
+      $checkbox = $('<input type="checkbox" class="gsb-program-instance-ct-display-on-finder"' + 'data-nid="' + nid + '"' + checked + ' />');
+      $checkbox.click(function() {
+        // Call post to update the display on finder for the program instance
+        var checked = $(this).is(':checked') ? 'true' : 'false';
+        $.post(Drupal.settings.basePath + 'gsb-feature-program-instance-ct/display-on-finder-update/node/' +  $(this).data('nid'), {display_on_finder: checked});
       });
 
-      // When the element is changed, store the new value in the ajax data and
-      // trigger the event.
-      $element.change(function () {
-        ajax.options.data.display_on_finder = $(this).is(':checked');
-        $(ajax.element).trigger('gsb_program_instance_display_on_finder_change');
-      });
-
+      // Append a display-finder checkbox for each display-on-finder-data span
+      $(this).parent().append($checkbox);
     });
 
-    $(context).find('.gsb-program-instance-ct-application-open').once(function () {
+    // Remove any existing application-open checkboxes
 
-      var $element = $(this);
+    $('input.gsb-program-instance-ct-application-open').remove();
 
-      // Create a new Drupal.ajax object that responds to the
-      // gsb_program_instance_application_change event.
-      var ajax = new Drupal.ajax(false, $element, {
-        event: 'gsb_program_instance_application_change',
-        url: Drupal.settings.basePath + 'gsb-feature-program-instance-ct/application-open-update/node/' + $element.data('nid')
+    // Loop thru each of the application-open-data spans
+
+    $('span.application-open-data').each(function() {
+      var nid = $(this).attr('data-nid');
+      var checked = 'checked';
+      if ($(this).attr('data-application-open') == 0) {
+        checked = '';
+      }
+      $checkbox = $('<input type="checkbox" class="gsb-program-instance-ct-application-open"' + 'data-nid="' + nid + '"' + checked + ' />');
+      $checkbox.click(function() {
+        // Call post to update the application open  for the program instance
+        var checked = $(this).is(':checked') ? 'true' : 'false';
+        $.post(Drupal.settings.basePath + 'gsb-feature-program-instance-ct/application-open-update/node/' +  $(this).data('nid'), {application_open: checked});
       });
 
-      // When the element is changed, store the new value in the ajax data and
-      // trigger the event.
-      $element.change(function () {
-        ajax.options.data.application_open = $(this).is(':checked');
-        $(ajax.element).trigger('gsb_program_instance_application_change');
-      });
-
+      // Append a application-open checkbox for each application-open-data span
+      $(this).parent().append($checkbox);
     });
 
   }
