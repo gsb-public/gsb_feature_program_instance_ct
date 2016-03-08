@@ -447,9 +447,22 @@ function gsb_feature_program_instance_ct_node_validate($form, &$form_state) {
       $form_state['values']['field_display_on_finder'][$language][0]['value'] = 0;
     }
     if ($form_state['values']['field_is_application_open'][$language][0]['value'] == 1 && $form_state['values']['field_link_apply_button'][$language][0]['url'] == "") {
-      // set error
       $label = $form['field_link_apply_button'][$language]['#title'];
       form_set_error('field_link_apply_button]['.$language.'][0][url', $label . ' field is required.');
+    }
+    if ($form_state['values']['field_program_location']['und'][0]['field_program_format']['und'][0]['tid'] == null) {
+      $errors = form_get_errors();
+      if (empty($errors['field_program_location][und][0][field_program_format][und'])) {
+        $label = $form['field_program_location']['und'][0]['field_program_format']['und']['#title'];
+        form_set_error('field_program_location]['.$language.'][0][field_program_format['.$language.']', $label . ' field is required.');
+      }
+    }
+    if ($form_state['values']['field_program_location']['und'][0]['field_program_location_category']['und'][0]['tid'] == null) {
+      $errors = form_get_errors();
+      if (empty($errors['field_program_location][und][0][field_program_location_category][und'])) {
+        $label = $form['field_program_location']['und'][0]['field_program_location_category']['und']['#title'];
+        form_set_error('field_program_location]['.$language.'][0][field_program_location_category['.$language.']', $label . ' field is required.');
+      }
     }
   }
 }
