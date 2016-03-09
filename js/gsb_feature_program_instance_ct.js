@@ -6,9 +6,7 @@
 Drupal.behaviors.gsbProgramInstance = {
   attach: function (context) {
 
-    // Remove any existing display-finder checkboxes
-
-    $('input.gsb-program-instance-ct-display-on-finder').remove();
+    var self = this;
 
     // Loop thru each of the display-on-finder-data spans
 
@@ -23,15 +21,14 @@ Drupal.behaviors.gsbProgramInstance = {
         // Call post to update the display on finder for the program instance
         var checked = $(this).is(':checked') ? 'true' : 'false';
         $.post(Drupal.settings.basePath + 'gsb-feature-program-instance-ct/display-on-finder-update/node/' +  $(this).data('nid'), {display_on_finder: checked});
+        self.throbDaThrobber(this);
       });
 
       // Append a display-finder checkbox for each display-on-finder-data span
-      $(this).parent().append($checkbox);
+      if($(this).siblings().length == 0) {
+        self.createThrobber(this);
+      }
     });
-
-    // Remove any existing application-open checkboxes
-
-    $('input.gsb-program-instance-ct-application-open').remove();
 
     // Loop thru each of the application-open-data spans
 
@@ -46,13 +43,30 @@ Drupal.behaviors.gsbProgramInstance = {
         // Call post to update the application open  for the program instance
         var checked = $(this).is(':checked') ? 'true' : 'false';
         $.post(Drupal.settings.basePath + 'gsb-feature-program-instance-ct/application-open-update/node/' +  $(this).data('nid'), {application_open: checked});
+        self.throbDaThrobber(this);
       });
 
       // Append a application-open checkbox for each application-open-data span
-      $(this).parent().append($checkbox);
+      if($(this).siblings().length == 0) {
+        self.createThrobber(this);
+      }
     });
 
+  },
+
+  createThrobber: function(element) {
+    $(element).parent().append($checkbox);
+    var $throbber = $('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
+    $('.throbber', $throbber).after('<div class="message">' + 'Updating...' + '</div>');
+    $(element).parent().append($throbber);
+    $throbber.hide();
+  },
+
+  throbDaThrobber: function(element) {
+    $(element).siblings('.ajax-progress').show();
+    $(element).siblings('.ajax-progress').fadeOut();
   }
+
 };
 
 /**
