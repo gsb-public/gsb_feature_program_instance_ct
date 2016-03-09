@@ -26,6 +26,7 @@ Drupal.behaviors.gsbProgramInstance = {
 
       // Append a display-finder checkbox for each display-on-finder-data span
       if($(this).siblings().length == 0) {
+        $(this).parent().append($checkbox);
         self.createThrobber(this);
       }
     });
@@ -48,6 +49,7 @@ Drupal.behaviors.gsbProgramInstance = {
 
       // Append a application-open checkbox for each application-open-data span
       if($(this).siblings().length == 0) {
+        $(this).parent().append($checkbox);
         self.createThrobber(this);
       }
     });
@@ -55,7 +57,6 @@ Drupal.behaviors.gsbProgramInstance = {
   },
 
   createThrobber: function(element) {
-    $(element).parent().append($checkbox);
     var $throbber = $('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
     $('.throbber', $throbber).after('<div class="message">' + 'Updating...' + '</div>');
     $(element).parent().append($throbber);
