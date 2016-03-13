@@ -453,16 +453,18 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_faculty_directors',
-        1 => 'field_faculty_label_1',
-        2 => 'field_faculty_1',
-        3 => 'field_faculty_label_2',
-        4 => 'field_faculty_2',
-        5 => 'field_guest_speakers_advisors',
-        6 => 'field_guest_speakers_advisors_fc',
+        0 => 'group_wrapper_faculty',
+        1 => 'field_faculty_directors',
+        2 => 'field_faculty_label_1',
+        3 => 'field_faculty_1',
+        4 => 'field_faculty_label_2',
+        5 => 'field_faculty_2',
+        6 => 'field_guest_speakers_advisors',
+        7 => 'field_guest_speakers_advisors_fc',
       ),
     ),
     'fields' => array(
+      'group_wrapper_faculty' => 'ds_content',
       'field_faculty_directors' => 'ds_content',
       'field_faculty_label_1' => 'ds_content',
       'field_faculty_1' => 'ds_content',

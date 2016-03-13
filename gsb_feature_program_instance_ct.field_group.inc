@@ -387,11 +387,45 @@ function gsb_feature_program_instance_ct_field_group_info() {
   );
   $field_groups['group_tuition|node|program_instance|form'] = $field_group;
 
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_wrapper_faculty|node|program_instance|field_program_faculty';
+  $field_group->group_name = 'group_wrapper_faculty';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'program_instance';
+  $field_group->mode = 'field_program_faculty';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Faculty',
+    'weight' => '0',
+    'children' => array(
+      0 => 'field_faculty_1',
+      1 => 'field_faculty_2',
+      2 => 'field_faculty_directors',
+      3 => 'field_faculty_label_1',
+      4 => 'field_faculty_label_2',
+      5 => 'field_guest_speakers_advisors',
+      6 => 'field_guest_speakers_advisors_fc',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-wrapper-faculty field-group-fieldset',
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_wrapper_faculty|node|program_instance|field_program_faculty'] = $field_group;
+
   // Translatables
   // Included for use with string extractors like potx.
   t(' Application Information');
   t('APower ID');
   t('Brochure & Download Link');
+  t('Faculty');
   t('Faculty 1');
   t('Faculty 2');
   t('Faculty Directors');
