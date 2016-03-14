@@ -408,14 +408,19 @@ function gsb_feature_program_instance_ct_field_group_info() {
       5 => 'field_guest_speakers_advisors',
       6 => 'field_guest_speakers_advisors_fc',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Faculty',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-wrapper-faculty field-group-fieldset',
         'id' => '',
+        'classes' => 'group-wrapper-faculty field-group-fieldset hide-if-empty',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'none',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_wrapper_faculty|node|program_instance|field_program_faculty'] = $field_group;
