@@ -47,7 +47,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
-    'label' => ' Application Information',
+    'label' => 'Application Deadlines',
     'weight' => '14',
     'children' => array(
       0 => 'field_application_deadlines',
@@ -56,7 +56,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => ' Application Information',
+      'label' => 'Application Deadlines',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => '',
@@ -289,9 +289,9 @@ function gsb_feature_program_instance_ct_field_group_info() {
       6 => 'group_format_location',
       7 => 'group_guest_speakers_advisors',
       8 => 'group_instance_dates_vtab',
-      9 => 'group_schedule',
-      10 => 'group_tuition',
-      11 => 'group_optional_programming',
+      9 => 'group_optional_programming',
+      10 => 'group_schedule',
+      11 => 'group_tuition',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -427,8 +427,8 @@ function gsb_feature_program_instance_ct_field_group_info() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t(' Application Information');
   t('APower ID');
+  t('Application Deadlines');
   t('Brochure & Download Link');
   t('Faculty');
   t('Faculty 1');
