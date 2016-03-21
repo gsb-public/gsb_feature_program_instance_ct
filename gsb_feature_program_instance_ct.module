@@ -132,11 +132,15 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     ),
   );
 
+  unset($form['#fieldgroups']['group_brochure']);
+
+  /*
   $form['field_brochure_pdf'][$language][0]['#description'] = '';
 
   if ($form['field_brochure_options']['und']['#default_value'] == null) {
     $form['field_brochure_options']['und']['#default_value'] = 'no_brochure_download';
   }
+  */
 
   $action = $form['#action'];
 
@@ -154,7 +158,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   unset($form['field_instance_date_text_select'][$language]['#title']);
 
   // Remove the n/a option for brochure options radio buttons
-  unset($form['field_brochure_options'][$language]['#options']['_none']);
+  //unset($form['field_brochure_options'][$language]['#options']['_none']);
 
   $form['field_instance_text']['#states'] = array(
     'visible' => array(
@@ -177,6 +181,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     ),
   );
 
+  /*
   // Visible state settings for the Brochure PDF upload and link fields
 
   $form['field_brochure_pdf']['#states'] = array(
@@ -197,6 +202,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
       )
     ),
   );
+  */
 
   // Fields on the 'Faculty' vertical tab...
 
