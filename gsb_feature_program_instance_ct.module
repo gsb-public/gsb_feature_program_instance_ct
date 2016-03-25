@@ -111,6 +111,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   }
 
   $form['#validate'][] = 'gsb_feature_program_instance_ct_node_validate';
+  $form['#submit'][] = 'gsb_feature_program_instance_ct_node_submit';
 
   $form['field_display_on_finder']['#access'] = FALSE;
   unset($form['field_display_on_finder_select'][$language]['#options']['_none']);
@@ -463,6 +464,27 @@ function gsb_feature_program_instance_ct_node_validate($form, &$form_state) {
         form_set_error('field_program_location]['.$language.'][0][field_program_location_category['.$language.']', $label . ' field is required.');
       }
     }
+  }
+}
+
+/**
+ * Submit handler for the node edit form.
+ *  - Clean out the instance date or instance text depending on the value of date_text_select
+ */
+function gsb_feature_program_instance_ct_node_submit($form, &$form_state) {
+  $language = 'und';
+  if (is_array($form) && !empty($form['language']['#value'])) {
+    $language = $form['language']['#value'];
+  }
+  else {
+    return;
+  }
+  if ($form_state['values']['field_instance_date_text_select'][$language][0]['value'] == 'Date') {
+    $form_state['values']['field_instance_text'][$language][0]['value'] = '';
+  }
+  else {
+    $form_state['values']['field_instance_date'][$language][0]['value'] = '';
+    $form_state['values']['field_instance_date'][$language][0]['value2'] = '';
   }
 }
 
