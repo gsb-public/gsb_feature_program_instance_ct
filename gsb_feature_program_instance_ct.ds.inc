@@ -552,14 +552,14 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'gsb_key_image',
+        0 => 'gsb_display_image',
         1 => 'field_program',
         2 => 'field_instance_date',
         3 => 'field_program_location',
       ),
     ),
     'fields' => array(
-      'gsb_key_image' => 'ds_content',
+      'gsb_display_image' => 'ds_content',
       'field_program' => 'ds_content',
       'field_instance_date' => 'ds_content',
       'field_program_location' => 'ds_content',
