@@ -214,7 +214,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'settings' => array(
           'conditions' => array(),
         ),
-        'type' => 'link_default',
+        'type' => 'link_title_plain',
         'weight' => 1,
       ),
     ),
