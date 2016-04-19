@@ -120,9 +120,6 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     $form['field_display_on_finder_select'][$language]['#default_value'] = 'visible';
   }
 
-  // Hide field_application_url on the Application Information vtab
-  unset($form['field_application_url']);
-
   // Remove the n/a options for program format and program location category
   unset($form['field_program_location'][$language][0]['field_program_format'][$language]['#options']['_none']);
   unset($form['field_program_location'][$language][0]['field_program_location_category'][$language]['#options']['_none']);
@@ -145,13 +142,32 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
   $action = $form['#action'];
 
+  $is_ee_program = false;
   if (strpos($action, "/gsb-node/ajax/add/program_instance/") !== FALSE) {
     $program_nid = str_replace("/gsb-node/ajax/add/program_instance/", "", $action);
     if (!empty($program_nid)) {
       $program_node = node_load($program_nid);
+      if (!empty($program_node->field_program_category['und'][0]['tid']) && $program_node->field_program_category['und'][0]['tid'] == '34911') {
+        $is_ee_program = true;
+      }
       $ref = $program_node->title . " (" . $program_nid . ")";
       $form['field_program'][$language][0]['target_id']['#default_value'] = $ref; //"Program X (407466)";
     }
+  }
+
+  // Hide field_application_url on the Application Deadlines vtab
+  // If the Program is not an EE program
+  if (!$is_ee_program && !empty($form_state['node']->field_program['und'][0]['target_id'])) {
+    $program_nid = $form_state['node']->field_program['und'][0]['target_id'];
+    if (!empty($program_nid)) {
+      $program_node = node_load($program_nid);
+      if (!empty($program_node->field_program_category['und'][0]['tid']) && $program_node->field_program_category['und'][0]['tid'] == '34911') {
+        $is_ee_program = true;
+      }
+    }
+  }
+  if (!$is_ee_program) {
+    unset($form['field_application_url']);
   }
 
   // Remove the n/a options for program format and program location category

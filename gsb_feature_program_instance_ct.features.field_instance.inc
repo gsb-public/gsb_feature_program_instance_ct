@@ -515,7 +515,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'custom_remove' => '',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'For programs using apower application, leave this field empty',
     'display' => array(
       'compact' => array(
         'label' => 'above',
@@ -3567,6 +3567,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('Faculty 2');
   t('Faculty 2 Header');
   t('Faculty Directors');
+  t('For programs using apower application, leave this field empty');
   t('Guest Speakers and Advisors');
   t('Guest Speakers and Advisors Header');
   t('Included in Tuition');
