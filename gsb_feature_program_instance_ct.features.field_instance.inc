@@ -515,7 +515,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'custom_remove' => '',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'This field is auto-populated for Executive Education programs that use APower. You must manually enter the URL for Executive Education programs that <strong>do not</strong> use APower',
+    'description' => 'This field is auto-populated for Executive Education programs that use APower. You must manually enter the URL for Executive Education programs that <strong>do not</strong> use APower.',
     'display' => array(
       'compact' => array(
         'label' => 'above',
