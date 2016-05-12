@@ -368,7 +368,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
-    'label' => 'Tuition',
+    'label' => 'Tuition or Program Fee',
     'weight' => '12',
     'children' => array(
       0 => 'field_included_in_tuition',
@@ -377,12 +377,13 @@ function gsb_feature_program_instance_ct_field_group_info() {
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'Tuition or Program Fee',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
         'required_fields' => 1,
+        'classes' => '',
+        'description' => '',
       ),
+      'formatter' => 'closed',
     ),
   );
   $field_groups['group_tuition|node|program_instance|form'] = $field_group;
@@ -439,7 +440,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   t('Instance Dates');
   t('Optional Programming');
   t('Schedule');
-  t('Tuition');
+  t('Tuition or Program Fee');
 
   return $field_groups;
 }

@@ -2072,7 +2072,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_included_in_tuition',
-    'label' => 'Included in Tuition',
+    'label' => 'Included in Tuition or Program Fee',
     'required' => 0,
     'settings' => array(
       'better_formats' => array(
@@ -3510,7 +3510,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_tuition',
-    'label' => 'Tuition',
+    'label' => 'Tuition or Program Fee',
     'required' => 0,
     'settings' => array(
       'absolute_url' => 1,
@@ -3570,7 +3570,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('For programs using apower application, leave this field empty');
   t('Guest Speakers and Advisors');
   t('Guest Speakers and Advisors Header');
-  t('Included in Tuition');
+  t('Included in Tuition or Program Fee');
   t('Instance Date Text Select');
   t('Instance Label');
   t('Optional Programming Dates and Tuition');
@@ -3582,7 +3582,8 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('Search field');
   t('Text');
   t('The application is open.');
-  t('Tuition');
+  t('This field is auto-populated for Executive Education programs that use APower. You must manually enter the URL for Executive Education programs that <strong>do not</strong> use APower.');
+  t('Tuition or Program Fee');
   t('Use a relative link only (the linked page must be on gsb.stanford.edu). | Example: /programs/example-link');
 
   return $field_instances;
