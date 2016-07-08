@@ -502,6 +502,44 @@ function gsb_feature_program_instance_ct_node_submit($form, &$form_state) {
     $form_state['values']['field_instance_date'][$language][0]['value'] = '';
     $form_state['values']['field_instance_date'][$language][0]['value2'] = '';
   }
+
+  // Sort the faculty_1, faculty_2 and guest_speakers_advisors items, by last name
+
+  $sort_list = array(
+    'field_faculty_1',
+    'field_faculty_2',
+    'field_guest_speakers_advisors_fc',
+  );
+
+  foreach($sort_list as $sort_field) {
+
+    $faculty_lastnames = array();
+    foreach($form_state['values'][$sort_field][$language] as $key => $item) {
+      if (!is_int($key)) {
+        continue;
+      }
+      if ($item['field_faculty_or_other'][$language][0]['value'] == 'UseEntityReference') {
+        $faculty_nid = $item['field_person_fac_single_ref'][$language][0]['target_id'];
+        $faculty_wrapper = entity_metadata_wrapper('node', $faculty_nid);
+        $last_name = $faculty_wrapper->field_last_name->value();
+      }
+      else {
+        $name = explode(' ', $item['field_other_name'][$language][0]['value']);
+        $last_name = end($name);
+      }
+      $faculty_lastnames[$key] = $last_name;
+    }
+
+    asort($faculty_lastnames);
+
+    $weight_index = 0;
+    foreach($faculty_lastnames as $key => $last_name) {
+      $form_state['values'][$sort_field][$language][$key]['_weight'] = $weight_index;
+      $weight_index++;
+    }
+
+  }
+
 }
 
 /**
