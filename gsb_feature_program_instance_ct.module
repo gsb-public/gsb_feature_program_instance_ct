@@ -520,6 +520,9 @@ function gsb_feature_program_instance_ct_node_submit($form, &$form_state) {
       }
       if ($item['field_faculty_or_other'][$language][0]['value'] == 'UseEntityReference') {
         $faculty_nid = $item['field_person_fac_single_ref'][$language][0]['target_id'];
+        if ($faculty_nid == '') {
+          continue;
+        }
         $faculty_wrapper = entity_metadata_wrapper('node', $faculty_nid);
         $last_name = $faculty_wrapper->field_last_name->value();
       }
