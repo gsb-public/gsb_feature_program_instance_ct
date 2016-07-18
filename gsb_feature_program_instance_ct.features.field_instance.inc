@@ -3415,19 +3415,29 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'field_apower_id' => 'field_apower_id',
         'field_application_deadlines' => 0,
         'field_application_url' => 0,
+        'field_brochure_options' => 0,
         'field_brochure_pdf' => 0,
         'field_display_on_finder' => 0,
+        'field_display_on_finder_select' => 0,
         'field_download_brochure_link' => 0,
+        'field_edit_faculty_page' => 0,
+        'field_faculty_1' => 0,
+        'field_faculty_2' => 0,
+        'field_faculty_directors' => 0,
+        'field_faculty_label_1' => 0,
+        'field_faculty_label_2' => 0,
+        'field_guest_speakers_advisors' => 0,
+        'field_guest_speakers_advisors_fc' => 0,
         'field_included_in_tuition' => 'field_included_in_tuition',
         'field_instance_date' => 0,
         'field_instance_date_text_select' => 0,
         'field_instance_label' => 'field_instance_label',
         'field_instance_text' => 'field_instance_text',
         'field_is_application_open' => 0,
-        'field_link_for_apply_button' => 0,
         'field_optional_programming' => 'field_optional_programming',
+        'field_payment_cancellation' => 0,
         'field_program' => 'field_program',
-        'field_program_location' => 0,
+        'field_program_location' => 'field_program_location',
         'field_program_schedule' => 0,
         'field_tuition' => 0,
       ),
@@ -3567,7 +3577,6 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('Faculty 2');
   t('Faculty 2 Header');
   t('Faculty Directors');
-  t('For programs using apower application, leave this field empty');
   t('Guest Speakers and Advisors');
   t('Guest Speakers and Advisors Header');
   t('Included in Tuition or Program Fee');
