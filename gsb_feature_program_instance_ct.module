@@ -622,7 +622,7 @@ function gsb_feature_program_instance_ct_node_view($entity, $view_mode, $langcod
   if (!empty($fields['gsb_display_image']['visible'])) {
     gsb_feature_program_ct_program_instance_ct_display_image($entity, $view_mode, $langcode);
   }
-
+  
 }
 
 function gsb_feature_program_instance_ct_time_commitment($entity, $view_mode, $langcode) {
@@ -675,7 +675,14 @@ function gsb_feature_program_ct_program_instance_ct_display_image($entity, $view
     $alt = !empty($program_node->field_display_image[$language][0]['alt']) ? $program_node->field_display_image[$language][0]['alt'] : '';
     $display_image = theme('image' , array('path' => $program_node->field_display_image[$language][0]['uri'], 'alt' => $alt));
 
-    $display_image_link = l($display_image, $program_node->path['alias'], array(
+    if ($program_node->field_program_detail[$language][0]['value'] == 1) {
+      $path = $program_node->field_link_single['und'][0]['url'];
+    } else {
+      $path = $program_node->path['alias'];
+    }
+
+    //$display_image_link = l($display_image, $program_node->path['alias'], array(
+    $display_image_link = l($display_image, $path, array(
       'attributes' => array('target' => '_blank'),
       'html' => TRUE
     ));
@@ -692,3 +699,4 @@ function gsb_feature_program_ct_program_instance_ct_display_image($entity, $view
   }
 
 }
+
