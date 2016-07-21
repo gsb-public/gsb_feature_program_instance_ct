@@ -203,7 +203,7 @@ function gsb_feature_program_instance_ct_strongarm() {
       'display' => array(
         'gsb_time_commitment' => array(
           'expanded' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => TRUE,
           ),
           'default' => array(
@@ -232,11 +232,19 @@ function gsb_feature_program_instance_ct_strongarm() {
             'weight' => '10',
             'visible' => FALSE,
           ),
+          'expanded' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
         ),
         'gsb_display_image' => array(
           'program_explore_other' => array(
             'weight' => '0',
             'visible' => TRUE,
+          ),
+          'expanded' => array(
+            'weight' => '11',
+            'visible' => FALSE,
           ),
         ),
       ),
