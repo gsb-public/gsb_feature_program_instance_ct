@@ -635,6 +635,12 @@ function gsb_feature_program_instance_ct_field_extra_fields() {
     ),
   );
 
+  $extra['field_collection_item']['field_faculty_directors']['display']['gsb_faculty_director_other_title_program'] = array(
+    'label' => t('Faculty Director Other Title and Program'),
+    'description' => t('Faculty Director Other Title and Program'),
+    'weight' => 1,
+  );
+
   return $extra;
 }
 
@@ -664,6 +670,21 @@ function gsb_feature_program_instance_ct_node_view($entity, $view_mode, $langcod
     gsb_feature_program_ct_program_instance_ct_display_image($entity, $view_mode, $langcode);
   }
 
+}
+
+/**
+ * Implements hook_entity_view().
+ *
+ *  - Render the Faculty Director Other Title and Program
+ */
+function gsb_feature_program_instance_ct_entity_view($entity, $type, $view_mode, $langcode) {
+  if ($type == 'field_collection_item') {
+    $fields = field_extra_fields_get_display('field_collection_item', $entity->field_name, $view_mode);
+    // Check if the 'faculty director other title program' field is visible
+    if (!empty($fields['gsb_faculty_director_other_title_program']['visible'])) {
+      gsb_feature_program_instance_ct_faculty_director_other_title_program($entity, $view_mode, $langcode);
+    }
+  }
 }
 
 function gsb_feature_program_instance_ct_time_commitment($entity, $view_mode, $langcode) {
@@ -732,4 +753,40 @@ function gsb_feature_program_ct_program_instance_ct_display_image($entity, $view
     );
   }
 
+}
+
+function gsb_feature_program_instance_ct_faculty_director_other_title_program($entity, $view_mode, $langcode) {
+  $language = $entity->language;
+
+  if ($entity->field_faculty_or_other['und'][0]['value'] == 'Other') {
+
+    $current_path = $_GET['q'];
+    $nid = str_replace('node/', '', $current_path);
+
+    $node = node_load($nid);
+    if ($node->type != 'program_panelized_page') {
+      return;
+    }
+
+    $program_nid = $node->field_program['und'][0]['target_id'];
+    $program_node = node_load($program_nid);
+
+    $field_info_director_title = field_info_field('field_faculty_director_title');
+    $director_title = $field_info_director_title['settings']['allowed_values'][$entity->field_faculty_director_title['und'][0]['value']];
+
+    $program_title = $program_node->title;
+
+    $list = theme('item_list', array(
+      'items' => array($director_title . ', ' . $program_title),
+      'attributes' => array('class' => array('list-class'))
+    ));
+
+    $content_wrapper['content'] = array('#markup' =>
+      '<div class="gsb-program-faculty-director-title-wrapper"><div class="program-faculty-director-title">' .
+        $list .
+      '</div></div>'
+    );
+
+    $entity->content['gsb_faculty_director_other_title_program'] = $content_wrapper;
+  }
 }
