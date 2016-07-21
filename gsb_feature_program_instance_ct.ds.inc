@@ -103,6 +103,19 @@ function gsb_feature_program_instance_ct_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_instance_text' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
     'field_program' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -444,13 +457,15 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_program',
-        1 => 'field_instance_date',
-        2 => 'field_program_location',
-        3 => 'gsb_time_commitment',
+        1 => 'field_instance_text',
+        2 => 'field_instance_date',
+        3 => 'field_program_location',
+        4 => 'gsb_time_commitment',
       ),
     ),
     'fields' => array(
       'field_program' => 'ds_content',
+      'field_instance_text' => 'ds_content',
       'field_instance_date' => 'ds_content',
       'field_program_location' => 'ds_content',
       'gsb_time_commitment' => 'ds_content',
@@ -464,6 +479,7 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
   );
   $export['node|program_instance|expanded'] = $ds_layout;
 
