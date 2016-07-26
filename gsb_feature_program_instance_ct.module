@@ -735,7 +735,8 @@ function gsb_feature_program_ct_program_instance_ct_display_image($entity, $view
   if (!empty($program_node->field_display_image[$language][0])) {
 
     $alt = !empty($program_node->field_display_image[$language][0]['alt']) ? $program_node->field_display_image[$language][0]['alt'] : '';
-    $display_image = theme('image' , array('path' => $program_node->field_display_image[$language][0]['uri'], 'alt' => $alt));
+    //$display_image = theme('image' , array('path' => $program_node->field_display_image[$language][0]['uri'], 'alt' => $alt));
+    $display_image = theme('image_style' , array('style_name' => 'program_display_image', 'path' => $program_node->field_display_image[$language][0]['uri'], 'alt' => $alt));
 
     if ($program_node->field_program_detail[$language][0]['value'] == 1) {
       $path = $program_node->field_link_single['und'][0]['url'];
