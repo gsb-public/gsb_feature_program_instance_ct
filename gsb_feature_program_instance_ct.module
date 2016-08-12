@@ -51,13 +51,16 @@ function gsb_feature_program_instance_ct_entity_menu_load($entity_id, $entity_ty
 function gsb_feature_program_instance_ct_update_display_on_finder($entity_type, $entity) {
 
   $display_on_finder = '0';
+  $display_on_finder_select = 'hidden';
   if ($_POST['display_on_finder'] == 'true') {
     $display_on_finder = '1';
+    $display_on_finder_select = 'visible';
   }
 
   // Load the entity and save the new value.
   $wrapper = entity_metadata_wrapper($entity_type, $entity);
   $wrapper->field_display_on_finder = $display_on_finder;
+  $wrapper->field_display_on_finder_select = $display_on_finder_select;
   $wrapper->save();
 
   return array(
@@ -764,9 +767,12 @@ function gsb_feature_program_ct_program_instance_ct_display_image($entity, $view
 }
 
 function gsb_feature_program_instance_ct_faculty_director_other_title_program($entity, $view_mode, $langcode) {
-  $language = $entity->language;
+  $language = 'und';
+  if (!empty($entity->language)) {
+    $language = $entity->language;
+  }
 
-  if ($entity->field_faculty_or_other['und'][0]['value'] == 'Other') {
+  if ($entity->field_faculty_or_other[$language][0]['value'] == 'Other') {
 
     $current_path = $_GET['q'];
     $nid = str_replace('node/', '', $current_path);
@@ -776,11 +782,11 @@ function gsb_feature_program_instance_ct_faculty_director_other_title_program($e
       return;
     }
 
-    $program_nid = $node->field_program['und'][0]['target_id'];
+    $program_nid = $node->field_program[$language][0]['target_id'];
     $program_node = node_load($program_nid);
 
     $field_info_director_title = field_info_field('field_faculty_director_title');
-    $director_title = $field_info_director_title['settings']['allowed_values'][$entity->field_faculty_director_title['und'][0]['value']];
+    $director_title = $field_info_director_title['settings']['allowed_values'][$entity->field_faculty_director_title[$language][0]['value']];
 
     $program_title = $program_node->title;
 
