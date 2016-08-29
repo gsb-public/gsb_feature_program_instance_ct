@@ -3439,7 +3439,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
         'field_is_application_open' => 0,
         'field_optional_programming' => 'field_optional_programming',
         'field_payment_cancellation' => 0,
-        'field_program' => 'field_program',
+        'field_program' => 0,
         'field_program_location' => 'field_program_location',
         'field_program_schedule' => 0,
         'field_tuition' => 0,
