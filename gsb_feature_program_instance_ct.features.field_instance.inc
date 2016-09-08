@@ -3077,12 +3077,8 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
       ),
       'featured_program' => array(
         'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'conditions' => array(),
-          'link' => 1,
-        ),
-        'type' => 'entityreference_label',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'field_program_faculty' => array(
