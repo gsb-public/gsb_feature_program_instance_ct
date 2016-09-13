@@ -219,7 +219,7 @@ function gsb_feature_program_instance_ct_strongarm() {
             'visible' => FALSE,
           ),
           'featured_program' => array(
-            'weight' => '0',
+            'weight' => '5',
             'visible' => FALSE,
           ),
         ),
@@ -241,7 +241,7 @@ function gsb_feature_program_instance_ct_strongarm() {
             'visible' => FALSE,
           ),
           'featured_program' => array(
-            'weight' => '0',
+            'weight' => '10',
             'visible' => FALSE,
           ),
         ),
@@ -255,7 +255,7 @@ function gsb_feature_program_instance_ct_strongarm() {
             'visible' => FALSE,
           ),
           'featured_program' => array(
-            'weight' => '0',
+            'weight' => '11',
             'visible' => FALSE,
           ),
         ),

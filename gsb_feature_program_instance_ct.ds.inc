@@ -481,11 +481,13 @@ function gsb_feature_program_instance_ct_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_instance_date',
-        1 => 'field_program_location',
+        1 => 'field_instance_text',
+        2 => 'field_program_location',
       ),
     ),
     'fields' => array(
       'field_instance_date' => 'ds_content',
+      'field_instance_text' => 'ds_content',
       'field_program_location' => 'ds_content',
     ),
     'classes' => array(),
