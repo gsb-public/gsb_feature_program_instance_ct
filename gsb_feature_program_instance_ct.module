@@ -172,7 +172,29 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   if (!$is_ee_program) {
     unset($form['field_application_url']);
   }
+  //Application State
 
+  if (!($form['field_application_state']['und']['#default_value'])) {
+    $form['field_application_state']['und']['#default_value'] = 'Closed';
+  }
+
+  $form['field_application_deadlines']['und'][0]['field_deadline_text']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
+    array('value' => 'Extended'),
+  );
+  $form['field_application_deadlines']['und'][0]['field_date']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
+    array('value' => 'Not yet available'),
+  );
+  $form['field_application_deadlines']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
+    array('value' => 'Closed'),
+  );
+  $form['field_application_deadlines']['und']['add_more']['#states']['visible'][':input[name="field_application_state[' . $language . ']"]'] = array(
+    array('value' => 'Open'),
+  );
+  $form['field_application_deadlines']['und'][0]['remove_button']['#states']['visible'][':input[name="field_application_state[' . $language . ']"]'] = array(
+    array('value' => 'Open'),
+  );
+  // Remove the n/a options for application state
+  unset($form['field_application_state'][$language]['#options']['_none']);
   // Remove the n/a options for program format and program location category
   unset($form['field_instance_date_text_select'][$language]['#options']['_none']);
   unset($form['field_instance_date_text_select'][$language]['#title']);

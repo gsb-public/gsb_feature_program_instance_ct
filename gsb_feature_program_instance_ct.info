@@ -59,6 +59,7 @@ features[field_instance][] = field_collection_item-field_application_deadlines-f
 features[field_instance][] = field_collection_item-field_program_location-field_program_location_link
 features[field_instance][] = node-program_instance-field_apower_id
 features[field_instance][] = node-program_instance-field_application_deadlines
+features[field_instance][] = node-program_instance-field_application_state
 features[field_instance][] = node-program_instance-field_application_url
 features[field_instance][] = node-program_instance-field_brochure_options
 features[field_instance][] = node-program_instance-field_brochure_pdf

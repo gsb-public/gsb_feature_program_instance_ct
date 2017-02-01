@@ -199,6 +199,9 @@ function gsb_feature_program_instance_ct_strongarm() {
         'workbench_access' => array(
           'weight' => '0',
         ),
+        'xmlsitemap' => array(
+          'weight' => '30',
+        ),
       ),
       'display' => array(
         'gsb_time_commitment' => array(
