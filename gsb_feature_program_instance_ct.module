@@ -172,8 +172,8 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   if (!$is_ee_program) {
     unset($form['field_application_url']);
   }
-  //Application State
 
+  //Application State
   if (!($form['field_application_state']['und']['#default_value'])) {
     $form['field_application_state']['und']['#default_value'] = 'Closed';
   }
@@ -182,6 +182,12 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     array('value' => 'Extended'),
   );
   $form['field_application_deadlines']['und'][0]['field_date']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
+    array('value' => 'Not yet available'),
+  );
+  $form['field_application_deadlines']['und'][0]['field_date']['#states']['required'][':input[name="field_application_state[' . $language . ']"]'] = array(
+    array('value' => 'Open'),
+  );
+  $form['field_application_deadlines']['und'][0]['field_deadline_text']['#states']['required'][':input[name="field_application_state[' . $language . ']"]'] = array(
     array('value' => 'Not yet available'),
   );
   $form['field_application_deadlines']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
@@ -485,6 +491,17 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 function gsb_feature_program_instance_ct_node_validate($form, &$form_state) {
   if (!empty($form_state['values'])) {
     $language = $form['language']['#value'];
+
+    //Conditional validation for field_deadline_text
+    $form_state['field_application_deadlines']['und'][0]['field_deadline_text']['und'][0]['value'] = $form['field_application_deadlines']['und'][0]['field_deadline_text']['und'][0]['value']['#value'];
+    $deadline_text = $form_state['field_application_deadlines']['und'][0]['field_deadline_text']['und'][0]['value'];
+    if ($form_state['values']['field_application_state'][$language][0]['value'] == 'Not yet available') {
+      if (empty($deadline_text)) {
+        $label = $form['field_application_deadlines'][$language][0]['field_deadline_text'][$language]['#title'];
+        form_set_error('field_application_deadlines]['.$language.'][0][field_deadline_text', $label . ' field is required.');
+      }
+    }
+
     if ($form_state['values']['field_display_on_finder_select'][$language][0]['value'] == 'visible') {
       $form_state['values']['field_display_on_finder'][$language][0]['value'] = 1;
     }
@@ -494,7 +511,7 @@ function gsb_feature_program_instance_ct_node_validate($form, &$form_state) {
     if ($form_state['values']['field_program_location']['und'][0]['field_program_format']['und'][0]['tid'] == null) {
       $errors = form_get_errors();
       if (empty($errors['field_program_location][und][0][field_program_format][und'])) {
-        $label = $form['field_program_location']['und'][0]['field_program_format']['und']['#title'];
+        $label =  $form['field_program_location']['und'][0]['field_program_format']['und']['#title'];
         form_set_error('field_program_location]['.$language.'][0][field_program_format['.$language.']', $label . ' field is required.');
       }
     }
