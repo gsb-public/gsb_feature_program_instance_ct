@@ -515,7 +515,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'custom_remove' => '',
     'default_value' => array(
       0 => array(
-        'value' => 'Closed',
+        'value' => 4,
       ),
     ),
     'deleted' => 0,
@@ -3663,6 +3663,93 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
+  // Exported field_instance: 'node-program_instance-field_waitlist_only'.
+  $field_instances['node-program_instance-field_waitlist_only'] = array(
+    'bundle' => 'program_instance',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'compact' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(
+          'conditions' => array(),
+        ),
+        'type' => 'list_default',
+        'weight' => 35,
+      ),
+      'expanded' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'featured_program' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'field_program_faculty' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'program_explore_other' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_waitlist_only',
+    'label' => 'Waitlist only',
+    'required' => 0,
+    'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 67,
+    ),
+    'workbench_access_field' => 0,
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('APower ID');
@@ -3697,6 +3784,7 @@ function gsb_feature_program_instance_ct_field_default_field_instances() {
   t('This field is auto-populated for Executive Education programs that use APower. You must manually enter the URL for Executive Education programs that <strong>do not</strong> use APower.');
   t('Tuition or Program Fee');
   t('Use a relative link only (the linked page must be on gsb.stanford.edu). | Example: /programs/example-link');
+  t('Waitlist only');
 
   return $field_instances;
 }

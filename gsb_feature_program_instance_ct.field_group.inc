@@ -21,7 +21,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'APower ID',
-    'weight' => '9',
+    'weight' => '69',
     'children' => array(
       0 => 'field_apower_id',
     ),
@@ -48,12 +48,13 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Application & Deadlines',
-    'weight' => '14',
+    'weight' => '74',
     'children' => array(
       0 => 'field_application_deadlines',
       1 => 'field_is_application_open',
       2 => 'field_application_url',
       3 => 'field_application_state',
+      4 => 'field_waitlist_only',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -79,7 +80,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Brochure & Download Link',
-    'weight' => '15',
+    'weight' => '75',
     'children' => array(
       0 => 'field_brochure_pdf',
       1 => 'field_download_brochure_link',
@@ -109,7 +110,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Faculty 1',
-    'weight' => '17',
+    'weight' => '77',
     'children' => array(
       0 => 'field_faculty_1',
       1 => 'field_faculty_label_1',
@@ -138,7 +139,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Faculty 2',
-    'weight' => '18',
+    'weight' => '78',
     'children' => array(
       0 => 'field_faculty_2',
       1 => 'field_faculty_label_2',
@@ -166,7 +167,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Faculty Directors',
-    'weight' => '16',
+    'weight' => '76',
     'children' => array(
       0 => 'field_faculty_directors',
       1 => 'field_edit_faculty_page',
@@ -195,7 +196,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Format & Location',
-    'weight' => '11',
+    'weight' => '71',
     'children' => array(
       0 => 'field_program_location',
     ),
@@ -222,7 +223,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Guest Speakers and Advisors',
-    'weight' => '19',
+    'weight' => '79',
     'children' => array(
       0 => 'field_guest_speakers_advisors',
       1 => 'field_guest_speakers_advisors_fc',
@@ -250,7 +251,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Instance Dates',
-    'weight' => '8',
+    'weight' => '68',
     'children' => array(
       0 => 'field_instance_date',
       1 => 'field_instance_date_text_select',
@@ -316,7 +317,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Optional Programming',
-    'weight' => '13',
+    'weight' => '73',
     'children' => array(
       0 => 'field_optional_programming',
     ),
@@ -343,7 +344,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Schedule',
-    'weight' => '10',
+    'weight' => '70',
     'children' => array(
       0 => 'field_program_schedule',
     ),
@@ -370,7 +371,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
   $field_group->parent_name = 'group_main_vtab';
   $field_group->data = array(
     'label' => 'Tuition or Program Fee',
-    'weight' => '12',
+    'weight' => '72',
     'children' => array(
       0 => 'field_included_in_tuition',
       1 => 'field_tuition',
