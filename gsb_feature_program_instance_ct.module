@@ -178,17 +178,22 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     $form['field_application_state']['und']['#default_value'] = '4';
   }
 
-  $form['field_application_deadlines']['und'][0]['field_deadline_text']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
-    array('value' => '1'),
-  );
+//  $form['field_application_deadlines']['und'][0]['field_deadline_text']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
+//    array('value' => '1'),
+//  );
   $form['field_application_deadlines']['und'][0]['field_date']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
     array('value' => '3'),
   );
   $form['field_application_deadlines']['und'][0]['field_date']['#states']['required'][':input[name="field_application_state[' . $language . ']"]'] = array(
     array('value' => '2'),
   );
+
+//  $form['field_application_deadlines']['und'][0]['field_deadline_text']['#states']['required'][':input[name="field_application_state[' . $language . ']"]'] = array(
+//    array('value' => '3'),
+//  );
+
   $form['field_application_deadlines']['und'][0]['field_deadline_text']['#states']['required'][':input[name="field_application_state[' . $language . ']"]'] = array(
-    array('value' => '3'),
+    array('value' => '1'),array('value' => '3'),
   );
   $form['field_application_deadlines']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
     array('value' => '4'),
@@ -199,10 +204,12 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   $form['field_application_deadlines']['und'][0]['remove_button']['#states']['visible'][':input[name="field_application_state[' . $language . ']"]'] = array(
     array('value' => '2'),
   );
-  $form['field_waitlist_only']['#states']['visible'][':input[name="field_application_state[' . $language . ']"]'] = array(
-    array('value' => '1'),
-  );
+//  $form['field_waitlist_only']['#states']['visible'][':input[name="field_application_state[' . $language . ']"]'] = array(
+//    array('value' => '1'),
+//  );
+
   // Remove the n/a options for application state
+  $form['field_waitlist_only']['#access'] = FALSE;
   unset($form['field_application_state'][$language]['#options']['_none']);
   // Remove the n/a options for program format and program location category
   unset($form['field_instance_date_text_select'][$language]['#options']['_none']);
@@ -498,7 +505,8 @@ function gsb_feature_program_instance_ct_node_validate($form, &$form_state) {
     //Conditional validation for field_deadline_text
     $form_state['field_application_deadlines']['und'][0]['field_deadline_text']['und'][0]['value'] = $form['field_application_deadlines']['und'][0]['field_deadline_text']['und'][0]['value']['#value'];
     $deadline_text = $form_state['field_application_deadlines']['und'][0]['field_deadline_text']['und'][0]['value'];
-    if ($form_state['values']['field_application_state'][$language][0]['value'] == 'Not yet available') {
+    
+    if (in_array($form_state['values']['field_application_state'][$language][0]['value'],array('3',"1"))) {
       if (empty($deadline_text)) {
         $label = $form['field_application_deadlines'][$language][0]['field_deadline_text'][$language]['#title'];
         form_set_error('field_application_deadlines]['.$language.'][0][field_deadline_text', $label . ' field is required.');
