@@ -33,26 +33,26 @@ Drupal.behaviors.gsbProgramInstance = {
 
     // Loop thru each of the application-open-data spans
 
-    $('span.application-open-data').each(function() {
-      var nid = $(this).attr('data-nid');
-      var checked = 'checked';
-      if ($(this).attr('data-application-open') == 0) {
-        checked = '';
-      }
-      $checkbox = $('<input type="checkbox" class="gsb-program-instance-ct-application-open"' + 'data-nid="' + nid + '"' + checked + ' />');
-      $checkbox.click(function() {
-        // Call post to update the application open  for the program instance
-        var checked = $(this).is(':checked') ? 'true' : 'false';
-        $.post(Drupal.settings.basePath + 'gsb-feature-program-instance-ct/application-open-update/node/' +  $(this).data('nid'), {application_open: checked});
-        self.throbDaThrobber(this);
-      });
-
-      // Append a application-open checkbox for each application-open-data span
-      if($(this).siblings().length == 0) {
-        $(this).parent().append($checkbox);
-        self.createThrobber(this);
-      }
-    });
+    //$('span.application-open-data').each(function() {
+    //  var nid = $(this).attr('data-nid');
+    //  var checked = 'checked';
+    //  if ($(this).attr('data-application-open') == 0) {
+    //    checked = '';
+    //  }
+    //  $checkbox = $('<input type="checkbox" class="gsb-program-instance-ct-application-open"' + 'data-nid="' + nid + '"' + checked + ' />');
+    //  $checkbox.click(function() {
+    //    // Call post to update the application open  for the program instance
+    //    var checked = $(this).is(':checked') ? 'true' : 'false';
+    //    $.post(Drupal.settings.basePath + 'gsb-feature-program-instance-ct/application-open-update/node/' +  $(this).data('nid'), {application_open: checked});
+    //    self.throbDaThrobber(this);
+    //  });
+    //
+    //  // Append a application-open checkbox for each application-open-data span
+    //  if($(this).siblings().length == 0) {
+    //    $(this).parent().append($checkbox);
+    //    self.createThrobber(this);
+    //  }
+    //});
 
   },
 
@@ -79,7 +79,7 @@ Drupal.ajax.prototype.commands.gsb_feature_program_instance_ct_update_display_on
 /**
  * Process the response from updating the application open.
  */
-Drupal.ajax.prototype.commands.gsb_feature_program_instance_ct_update_application_open_result = function (ajax, response, status) {
-};
+//Drupal.ajax.prototype.commands.gsb_feature_program_instance_ct_update_application_open_result = function (ajax, response, status) {
+//};
 
 }(jQuery));
