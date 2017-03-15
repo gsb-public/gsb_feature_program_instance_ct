@@ -629,7 +629,6 @@ function gsb_feature_program_instance_ct_field_attach_form($entity_type, $entity
  */
 function gsb_feature_program_instance_ct_field_widget_link_field_form_alter(&$element, &$form_state, $context) {
   if ($context['instance']['field_name'] == 'field_program_location_link') {
-    dpm($element);
     $element['#after_build'][] = 'gsb_feature_program_instance_ct_program_location_link_after_build';
   }
   if ($context['instance']['field_name'] == 'field_tuition') {
