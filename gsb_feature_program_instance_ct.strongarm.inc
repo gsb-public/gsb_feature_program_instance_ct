@@ -202,6 +202,24 @@ function gsb_feature_program_instance_ct_strongarm() {
       'guest_speakers_advisors' => array(
         'custom_settings' => FALSE,
       ),
+      'seed_research_project' => array(
+        'custom_settings' => FALSE,
+      ),
+      'field_program_participants_desc' => array(
+        'custom_settings' => FALSE,
+      ),
+      'field_program_participants_intro' => array(
+        'custom_settings' => FALSE,
+      ),
+      'page_featured_programs' => array(
+        'custom_settings' => FALSE,
+      ),
+      'faculty_teaching_programs' => array(
+        'custom_settings' => FALSE,
+      ),
+      'field_program_who_should_attend' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -231,7 +249,7 @@ function gsb_feature_program_instance_ct_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '0',
+            'weight' => '1',
             'visible' => TRUE,
           ),
           'field_program_faculty' => array(
@@ -246,10 +264,14 @@ function gsb_feature_program_instance_ct_strongarm() {
             'weight' => '5',
             'visible' => FALSE,
           ),
+          'token' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
         ),
         'gsb_key_image' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '2',
             'visible' => TRUE,
           ),
           'program_explore_other' => array(
@@ -268,6 +290,10 @@ function gsb_feature_program_instance_ct_strongarm() {
             'weight' => '10',
             'visible' => FALSE,
           ),
+          'token' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
         ),
         'gsb_display_image' => array(
           'program_explore_other' => array(
@@ -281,6 +307,14 @@ function gsb_feature_program_instance_ct_strongarm() {
           'featured_program' => array(
             'weight' => '11',
             'visible' => FALSE,
+          ),
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'token' => array(
+            'weight' => '1',
+            'visible' => TRUE,
           ),
         ),
       ),
@@ -347,6 +381,16 @@ function gsb_feature_program_instance_ct_strongarm() {
   $strongarm->name = 'workbench_moderation_default_state_program_instance';
   $strongarm->value = 'draft';
   $export['workbench_moderation_default_state_program_instance'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_program_instance';
+  $strongarm->value = array(
+    'status' => '0',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_program_instance'] = $strongarm;
 
   return $export;
 }
