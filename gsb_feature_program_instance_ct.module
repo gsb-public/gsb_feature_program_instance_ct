@@ -117,11 +117,14 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   $form['#submit'][] = 'gsb_feature_program_instance_ct_node_submit';
 
   $form['field_display_on_finder']['#access'] = FALSE;
+
   unset($form['field_display_on_finder_select'][$language]['#options']['_none']);
+
   $form['field_display_on_finder_select'][$language]['#default_value'] = 'hidden';
   if ($form['field_display_on_finder'][$language]['#default_value'] == 1) {
     $form['field_display_on_finder_select'][$language]['#default_value'] = 'visible';
   }
+
   // Remove the n/a options for program format and program location category
   unset($form['field_program_location'][$language][0]['field_program_format'][$language]['#options']['_none']);
   unset($form['field_program_location'][$language][0]['field_program_location_category'][$language]['#options']['_none']);
@@ -176,6 +179,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     $form['field_application_state']['und']['#default_value'] = '4';
   }
 
+  /****
   $form['field_application_deadlines']['und'][0]['field_date']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
     array('value' => '3'),
   );
@@ -195,6 +199,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   $form['field_application_deadlines']['und'][0]['remove_button']['#states']['visible'][':input[name="field_application_state[' . $language . ']"]'] = array(
     array('value' => '2'),
   );
+  ****/
 
   // Remove the n/a options for application state
   $form['field_waitlist_only']['#access'] = FALSE;
@@ -206,6 +211,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   // Remove the n/a option for brochure options radio buttons
   //unset($form['field_brochure_options'][$language]['#options']['_none']);
 
+  /****
   $form['field_instance_text']['#states'] = array(
     'visible' => array(
       ':input[name="field_instance_date_text_select[' . $language . ']"]' => array(
@@ -226,29 +232,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
       ':input[name="field_apower_id[' . $language . '][0][value]"]' => array('filled' => TRUE)
     ),
   );
-
-  /*
-  // Visible state settings for the Brochure PDF upload and link fields
-
-  $form['field_brochure_pdf']['#states'] = array(
-    'invisible' => array(
-      ':input[name="field_brochure_options[' . $language . ']"],value="brochure_link_pdf"' => array(
-        '!value' => 'brochure_link_pdf',
-      ),
-      ':input[name="field_brochure_options[' . $language . ']"],value="brochure_link_ee_lead_form"' => array(
-        '!value' => 'brochure_link_ee_lead_form',
-      )
-    ),
-  );
-  // 'value' => 'brochure_link_ee_lead_form',
-  $form['field_download_brochure_link']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_brochure_options[' . $language . ']"]' => array(
-        'value' => 'brochure_link_other',
-      )
-    ),
-  );
-  */
+  ****/
 
   // Fields on the 'Faculty' vertical tab...
 
@@ -268,6 +252,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
   // Field Collection: Faculty Directors
 
+  /****
   if (!empty($form['field_faculty_directors'][$language])) {
 
     foreach ($form['field_faculty_directors'][$language] as $index => $data) {
@@ -327,9 +312,26 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
     }
   }
+  ****/
+
+  if (!empty($form['field_faculty_directors'][$language])) {
+
+    foreach ($form['field_faculty_directors'][$language] as $index => $data) {
+
+      if (is_integer($index)) {
+        // Remove the n/a options for field_faculty_or_other
+        unset($form['field_faculty_directors'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
+
+        // Remove the n/a options for field_faculty_director_title
+        unset($form['field_faculty_directors'][$language][$index]['field_faculty_director_title'][$language]['#options']['_none']);
+      }
+
+    }
+  }
 
   // Field Collection: Faculty 1
 
+  /****
   if (!empty($form['field_faculty_1'][$language])) {
 
     foreach ($form['field_faculty_1'][$language] as $index => $data) {
@@ -378,9 +380,23 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
     }
   }
+  ****/
+
+  if (!empty($form['field_faculty_1'][$language])) {
+
+    foreach ($form['field_faculty_1'][$language] as $index => $data) {
+
+      if (is_integer($index)) {
+        // Remove the n/a options for field_faculty_or_other
+        unset($form['field_faculty_1'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
+      }
+
+    }
+  }
 
   // Field Collection: Faculty 2
 
+  /****
   if (!empty($form['field_faculty_2'][$language])) {
 
     foreach ($form['field_faculty_2'][$language] as $index => $data) {
@@ -429,9 +445,23 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
     }
   }
+  ****/
+
+  if (!empty($form['field_faculty_2'][$language])) {
+
+    foreach ($form['field_faculty_2'][$language] as $index => $data) {
+
+      if (is_integer($index)) {
+        // Remove the n/a options for field_faculty_or_other
+        unset($form['field_faculty_2'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
+      }
+
+    }
+  }
 
   // Field Collection: Guest and Advisors
 
+  /****
   if (!empty($form['field_guest_speakers_advisors_fc'][$language])) {
 
     foreach ($form['field_guest_speakers_advisors_fc'][$language] as $index => $data) {
@@ -474,6 +504,19 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
           ),
         );
 
+        // Remove the n/a options for field_faculty_or_other
+        unset($form['field_guest_speakers_advisors_fc'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
+      }
+
+    }
+  }
+  ****/
+
+  if (!empty($form['field_guest_speakers_advisors_fc'][$language])) {
+
+    foreach ($form['field_guest_speakers_advisors_fc'][$language] as $index => $data) {
+
+      if (is_integer($index)) {
         // Remove the n/a options for field_faculty_or_other
         unset($form['field_guest_speakers_advisors_fc'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
       }
