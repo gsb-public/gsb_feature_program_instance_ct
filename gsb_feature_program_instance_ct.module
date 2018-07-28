@@ -179,7 +179,6 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
     $form['field_application_state']['und']['#default_value'] = '4';
   }
 
-  /****
   $form['field_application_deadlines']['und'][0]['field_date']['#states']['invisible'][':input[name="field_application_state[' . $language . ']"]'] = array(
     array('value' => '3'),
   );
@@ -199,7 +198,6 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   $form['field_application_deadlines']['und'][0]['remove_button']['#states']['visible'][':input[name="field_application_state[' . $language . ']"]'] = array(
     array('value' => '2'),
   );
-  ****/
 
   // Remove the n/a options for application state
   $form['field_waitlist_only']['#access'] = FALSE;
@@ -210,8 +208,7 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
   // Remove the n/a option for brochure options radio buttons
   //unset($form['field_brochure_options'][$language]['#options']['_none']);
-
-  /****
+  
   $form['field_instance_text']['#states'] = array(
     'visible' => array(
       ':input[name="field_instance_date_text_select[' . $language . ']"]' => array(
@@ -232,7 +229,6 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
       ':input[name="field_apower_id[' . $language . '][0][value]"]' => array('filled' => TRUE)
     ),
   );
-  ****/
 
   // Fields on the 'Faculty' vertical tab...
 
@@ -252,68 +248,6 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
   // Field Collection: Faculty Directors
 
-  /****
-  if (!empty($form['field_faculty_directors'][$language])) {
-
-    foreach ($form['field_faculty_directors'][$language] as $index => $data) {
-
-      if (is_integer($index)) {
-
-        $form['field_faculty_directors'][$language][$index]['field_person_fac_single_ref']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'UseEntityReference'),
-            ),
-          ),
-        );
-        $form['field_faculty_directors'][$language][$index]['field_other_name']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_faculty_directors'][$language][$index]['field_image_single_public']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_faculty_directors'][$language][$index]['field_link_single']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_faculty_directors'][$language][$index]['field_academic_title']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_faculty_directors'][$language][$index]['field_director_title_other']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_directors[' . $language . '][' . $index . '][field_faculty_director_title][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-
-        // Remove the n/a options for field_faculty_or_other
-        unset($form['field_faculty_directors'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
-
-        // Remove the n/a options for field_faculty_director_title
-        unset($form['field_faculty_directors'][$language][$index]['field_faculty_director_title'][$language]['#options']['_none']);
-
-      }
-
-    }
-  }
-  ****/
-
   if (!empty($form['field_faculty_directors'][$language])) {
 
     foreach ($form['field_faculty_directors'][$language] as $index => $data) {
@@ -331,57 +265,6 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
   // Field Collection: Faculty 1
 
-  /****
-  if (!empty($form['field_faculty_1'][$language])) {
-
-    foreach ($form['field_faculty_1'][$language] as $index => $data) {
-
-      if (is_integer($index)) {
-
-        $form['field_faculty_1'][$language][$index]['field_person_fac_single_ref']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'UseEntityReference'),
-            ),
-          ),
-        );
-        $form['field_faculty_1'][$language][$index]['field_other_name']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_faculty_1'][$language][$index]['field_image_single_public']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_faculty_1'][$language][$index]['field_link_single']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_faculty_1'][$language][$index]['field_academic_title']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_1[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-
-        // Remove the n/a options for field_faculty_or_other
-        unset($form['field_faculty_1'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
-      }
-
-    }
-  }
-  ****/
-
   if (!empty($form['field_faculty_1'][$language])) {
 
     foreach ($form['field_faculty_1'][$language] as $index => $data) {
@@ -396,57 +279,6 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
 
   // Field Collection: Faculty 2
 
-  /****
-  if (!empty($form['field_faculty_2'][$language])) {
-
-    foreach ($form['field_faculty_2'][$language] as $index => $data) {
-
-      if (is_integer($index)) {
-
-        $form['field_faculty_2'][$language][$index]['field_person_fac_single_ref']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'UseEntityReference'),
-            ),
-          ),
-        );
-        $form['field_faculty_2'][$language][$index]['field_other_name']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_faculty_2'][$language][$index]['field_image_single_public']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_faculty_2'][$language][$index]['field_link_single']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_faculty_2'][$language][$index]['field_academic_title']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_faculty_2[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-
-        // Remove the n/a options for field_faculty_or_other
-        unset($form['field_faculty_2'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
-      }
-
-    }
-  }
-  ****/
-
   if (!empty($form['field_faculty_2'][$language])) {
 
     foreach ($form['field_faculty_2'][$language] as $index => $data) {
@@ -460,57 +292,6 @@ function gsb_feature_program_instance_ct_form_node_form_alter(&$form, &$form_sta
   }
 
   // Field Collection: Guest and Advisors
-
-  /****
-  if (!empty($form['field_guest_speakers_advisors_fc'][$language])) {
-
-    foreach ($form['field_guest_speakers_advisors_fc'][$language] as $index => $data) {
-
-      if (is_integer($index)) {
-
-        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_person_fac_single_ref']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'UseEntityReference'),
-            ),
-          ),
-        );
-        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_other_name']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_image_single_public']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_link_single']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-        $form['field_guest_speakers_advisors_fc'][$language][$index]['field_academic_title']['#states'] = array(
-          'visible' => array(
-            ':input[name="field_guest_speakers_advisors_fc[' . $language . '][' . $index . '][field_faculty_or_other][' . $language . ']"]' => array(
-              array('value' => 'Other'),
-            ),
-          ),
-        );
-
-        // Remove the n/a options for field_faculty_or_other
-        unset($form['field_guest_speakers_advisors_fc'][$language][$index]['field_faculty_or_other'][$language]['#options']['_none']);
-      }
-
-    }
-  }
-  ****/
 
   if (!empty($form['field_guest_speakers_advisors_fc'][$language])) {
 
