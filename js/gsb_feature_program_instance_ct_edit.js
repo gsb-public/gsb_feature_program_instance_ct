@@ -72,6 +72,14 @@ function findRowIndex(facultyRows, radioName, itemIndex) {
       break;
     }
 
+    if (rbGroup.length > 0) {
+      $(rbGroup).attr("data-item-index", itemIndex);
+      $(rbGroup).on("change", function () {
+        toogleFacultyDisplay(facultyRows, radioName, $(this).attr("data-item-index"));
+      });
+      break;
+    }
+
   }
 
   return rowIndex;
@@ -91,6 +99,14 @@ function findDirectorRowIndex(facultyRows, itemIndex) {
     var rbDirectorTitleGroup = $(facultyDirectorTitle).find(':input[name="' + "field_faculty_directors" + '[und][' + itemIndex + '][field_faculty_director_title][und]"]');
 
     if (parseInt($(rbDirectorTitleGroup).attr("data-item-index")) === parseInt(itemIndex)) {
+      break;
+    }
+
+    if (rbDirectorTitleGroup.length > 0) {
+      $(rbDirectorTitleGroup).attr("data-item-index", itemIndex);
+      $(rbDirectorTitleGroup).on("change", function () {
+        toogleDirectorTitle(facultyRows, $(this).attr("data-item-index"));
+      });
       break;
     }
 
