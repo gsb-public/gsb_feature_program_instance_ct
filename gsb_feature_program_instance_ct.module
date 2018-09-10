@@ -426,7 +426,7 @@ function gsb_feature_program_instance_ct_field_attach_form($entity_type, $entity
         'field_module_date',
       ),
     );
-
+    
     // Build up the location of the field in the form.
     $parents = $form['#parents'];
     $parents[] = 'field_module_show_date';
@@ -553,17 +553,22 @@ function gsb_feature_program_instance_ct_entity_view($entity, $type, $view_mode,
 }
 
 function gsb_feature_program_instance_ct_time_commitment($entity, $view_mode, $langcode) {
+  if (empty($entity->field_program['und'][0])) {
+    return;
+  }
   $program_node = node_load($entity->field_program['und'][0]['target_id']);
-  $time_commitment_term = taxonomy_term_load($program_node->field_time_commitment['und'][0]['tid']);
-  $entity->content['gsb_time_commitment'] = array(
-    '#type' => 'container',
-    '#attributes' => array(
-      'class' => array(
-        'gsb-time-commitment',
+  if ($program_node) {
+    $time_commitment_term = taxonomy_term_load($program_node->field_time_commitment['und'][0]['tid']);
+    $entity->content['gsb_time_commitment'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array(
+          'gsb-time-commitment',
+        ),
       ),
-    ),
-    '#children' => $time_commitment_term->name,
-  );
+      '#children' => $time_commitment_term->name,
+    );
+  }
 }
 
 function gsb_feature_program_ct_program_instance_ct_key_image($entity, $view_mode, $langcode) {
