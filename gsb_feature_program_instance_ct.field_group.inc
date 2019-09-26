@@ -53,6 +53,7 @@ function gsb_feature_program_instance_ct_field_group_info() {
       0 => 'field_application_deadlines',
       1 => 'field_application_url',
       2 => 'field_application_state',
+      3 => 'field_admission_statement',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
